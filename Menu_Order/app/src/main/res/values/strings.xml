@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Menu_Order</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tele_order">TeleOrder</string>
+    <string name="title_activity_eat_in">Eat_in</string>
+    <string name="title_activity_order">Order</string>
+    <string name="title_activity_fast_order">FastOrder</string>
+    <string name="title_activity_allorder">allorder</string>
+    <string name="title_activity_setphonenum">setphonenum</string>
+    <string name="title_activity_setaddress">setaddress</string>
+</resources>
