@@ -2,11 +2,13 @@ package com.example.elva_yiwei.menu_order;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -113,6 +115,14 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
             editable.insert(start, Character.toString((char) primaryCode));
         }
     }
+
+    public void Submit(View view)
+    {
+        Intent intent;
+        intent = new Intent(this,setadd.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onText(CharSequence text) {
