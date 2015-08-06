@@ -24,7 +24,7 @@ public class setphonenum extends Activity implements KeyboardView.OnKeyboardActi
     private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        intent=new Intent(this,setaddress.class);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setphonenum);
         context=this;
@@ -75,8 +75,8 @@ public class setphonenum extends Activity implements KeyboardView.OnKeyboardActi
         }
         else if(primaryCode== KeyEvent.ACTION_DOWN)
         {
-
-            startActivity(intent);
+            Intent t =  new Intent(setphonenum.this, PickorDelivery.class);
+            startActivity(t);
 
         }
         else
