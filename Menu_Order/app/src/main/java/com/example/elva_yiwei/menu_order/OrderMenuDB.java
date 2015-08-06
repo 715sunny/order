@@ -26,6 +26,7 @@ public class OrderMenuDB {
     public static final String IMAGE = "image";
     public static final String SHORTCUTSKEY = "shortcutsKey";
 
+
     private static final int DATABASE_VERSION = 2;
 
     public static final String DATABASE_CREATE_ORDERS = "CREATE TABLE "
@@ -99,10 +100,10 @@ public class OrderMenuDB {
 
     public void persist(String name, String image, String shortcuts, int type) throws SQLException {
         ContentValues values = new ContentValues();
-        MenusContract.putName(values, name);
-        MenusContract.putImage(values, image);
-        MenusContract.putShortcutKey(values, shortcuts);
-        MenusContract.putType(values,type);
+//        MenusContract.putName(values, name);
+//        MenusContract.putImage(values, image);
+//        MenusContract.putShortcutKey(values, shortcuts);
+//        MenusContract.putType(values,type);
         db.insert(DATABASE_MENUS_TABLE, null, values);
     }
 

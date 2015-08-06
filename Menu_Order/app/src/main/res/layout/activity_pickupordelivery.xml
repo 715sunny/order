@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.elva_yiwei.menu_order.PickorDelivery">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/delivery"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:text="delivery"
+            android:textSize="40dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="150dp"
+            android:background="#FFDAB9"
+            />
+
+        <Button
+            android:id="@+id/pickup"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:text="pickup"
+            android:textSize="40dp"
+            android:background="#FFE4E1"
+            android:layout_marginLeft="400dp"
+            android:layout_marginTop="150dp"
+            android:layout_alignLeft="@+id/delivery"
+
+            />
+
+    </RelativeLayout>
+</RelativeLayout>

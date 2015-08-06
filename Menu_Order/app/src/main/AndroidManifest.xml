@@ -45,8 +45,12 @@
             android:label="@string/title_activity_setphonenum" >
         </activity>
         <activity
-            android:name=".setaddress"
-            android:label="@string/title_activity_setaddress" >
+            android:name=".PickorDelivery"
+            android:label="@string/title_activity_pickupordelivery" >
+        </activity>
+        <activity
+            android:name=".setadd"
+            android:label="@string/title_activity_setadd" >
         </activity>
     </application>
 
