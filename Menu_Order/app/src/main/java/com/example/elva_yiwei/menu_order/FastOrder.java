@@ -2,6 +2,7 @@ package com.example.elva_yiwei.menu_order;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,6 +27,8 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
     final ArrayList<String> array=new ArrayList<String>();
     private HashMap<String,String> menu=new HashMap<String,String>();
     private Adapter adapter;
+    private OrderMenuDB orderMenuDB;
+    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,21 +43,14 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
 
         edit.setInputType(InputType.TYPE_NULL);
         KeyboardInput keyboardInput =new KeyboardInput(activity,context);
-
-
-        menu.put("A1","宫爆鸡丁");
-        menu.put("A2","回锅肉");
-        menu.put("A3","青椒牛柳");
-        menu.put("B1","虾仁炒蛋");
-        menu.put("B2","土豆牛肉");
-        menu.put("B3","三椒鸡");
-        menu.put("C1","鱼香肉丝");
-        menu.put("C2","麻婆豆腐");
-        menu.put("C3","水煮鱼");
-
-
-
-
+        orderMenuDB = new OrderMenuDB(this);
+        orderMenuDB.open();
+        cursor =  orderMenuDB.fetchAllMenus();
+        if(cursor.getCount()!=0){
+            while (cursor.moveToNext()) {
+                menu.put(cursor.getString(cursor.getColumnIndex("shortcutsKey")),cursor.getString(cursor.getColumnIndex("name")));
+            }
+        }
         keyboardInput.getKeyboardView().setOnKeyboardActionListener(this);
         adapter = new Adapter(this,array);
         listview.setAdapter(adapter);
