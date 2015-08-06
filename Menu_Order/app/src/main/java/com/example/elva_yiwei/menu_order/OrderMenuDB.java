@@ -20,6 +20,7 @@ public class OrderMenuDB {
     public static final String MENUSLIST = "menusList";
     public static final String TYPE = "type";
     public static final String PHONENUM = "phoneNum";
+    public static final String ADRESS = "adress";
 
     public static final String NAME = "name";
     public static final String IMAGE = "image";
@@ -32,7 +33,8 @@ public class OrderMenuDB {
             + DATE                  + " TEXT NOT NULL, "
             + MENUSLIST             + " TEXT NOT NULL, "// MENUSIDLIST
             + TYPE                  + " INTEGER NOT NULL, "//1 not finish  0 finish
-            + PHONENUM              + " TEXT NOT NULL "
+            + PHONENUM              + " TEXT NOT NULL, "
+            + ADRESS                + " TEXT NOT NULL"
             + ");" ;
 
     public static final String DATABASE_CREATE_MENUS = "CREATE TABLE "
