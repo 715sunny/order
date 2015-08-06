@@ -100,10 +100,10 @@ public class OrderMenuDB {
 
     public void persist(String name, String image, String shortcuts, int type) throws SQLException {
         ContentValues values = new ContentValues();
-//        MenusContract.putName(values, name);
-//        MenusContract.putImage(values, image);
-//        MenusContract.putShortcutKey(values, shortcuts);
-//        MenusContract.putType(values,type);
+        MenusContract.putName(values, name);
+        MenusContract.putImage(values, image);
+        MenusContract.putShortcutKey(values, shortcuts);
+        MenusContract.putType(values,type);
         db.insert(DATABASE_MENUS_TABLE, null, values);
     }
 
