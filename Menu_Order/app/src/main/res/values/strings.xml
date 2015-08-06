@@ -10,4 +10,6 @@
     <string name="title_activity_allorder">allorder</string>
     <string name="title_activity_setphonenum">setphonenum</string>
     <string name="title_activity_setaddress">setaddress</string>
+    <string name="title_activity_pickupordelivery">pickupordelivery</string>
+    <string name="title_activity_setadd">setadd</string>
 </resources>
