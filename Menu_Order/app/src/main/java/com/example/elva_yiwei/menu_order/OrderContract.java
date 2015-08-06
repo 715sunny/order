@@ -12,6 +12,7 @@ public class OrderContract {
     public static final String KEY_MENUSLIST = "menusList";
     public static final String KEY_TYPE = "type";
     public static final String KEY_PHONENUM = "phoneNum";
+    public static final String KEY_ADDRESS = "adress";
 
     public static int getId(Cursor cursor) {
         return cursor.getInt(cursor.getColumnIndexOrThrow(KEY_ID));
@@ -42,6 +43,12 @@ public class OrderContract {
     }
     public static void putPhoneNum(ContentValues values, String phoneNum) {
         values.put(KEY_PHONENUM, phoneNum);
+    }
+    public static String getAdress(Cursor cursor) {
+        return cursor.getString(cursor.getColumnIndexOrThrow(KEY_PHONENUM));
+    }
+    public static void putAdress(ContentValues values, String adress) {
+        values.put(KEY_PHONENUM, adress);
     }
 
 }
