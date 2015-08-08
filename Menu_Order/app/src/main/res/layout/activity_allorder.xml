@@ -39,102 +39,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     >
+                    <ScrollView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
 
                     <RelativeLayout
                         android:id="@+id/chinese"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-                        　　
-
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableTop="@drawable/icon_jielanji"
-                            android:id="@+id/jielanji"
-                            android:layout_marginTop="0dp"
-                            android:text="芥兰鸡"
-                            />
-
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="芥兰虾"
-                            android:id="@+id/jielanxia"
-                            android:layout_marginTop="120dp"
-                            android:drawableTop="@drawable/icon_jielanxia"
-                            />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="芥兰牛"
-                            android:id="@+id/jielanniu"
-                            android:layout_marginTop="240dp"
-                            android:drawableTop="@drawable/icon_jielanniu"/>
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="湖南鸡"
-                            android:id="@+id/hunanji"
-                            android:layout_marginLeft="200dp"
-                            android:drawableTop="@drawable/icon_hunanji"
-                            />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableTop="@drawable/icon_hunanniu"
-                            android:text="湖南牛"
-                            android:layout_marginTop="120dp"
-                            android:id="@+id/hunanniu"
-                            android:layout_marginLeft="200dp"
-                            />
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="湖南虾"
-                            android:layout_marginTop="240dp"
-                            android:id="@+id/hunanxia"
-                            android:layout_marginLeft="200dp"
-                            android:drawableTop="@drawable/icon_hunanxia"
-                            />
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="什菜鸡"
-                            android:layout_marginTop="0dp"
-                            android:id="@+id/shencaiji"
-                            android:layout_marginLeft="400dp"
-                            android:drawableTop="@drawable/icon_shicaiji"
-
-                            />
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="什菜牛"
-                            android:layout_marginTop="120dp"
-                            android:id="@+id/shencainiu"
-                            android:layout_marginLeft="400dp"
-                            android:drawableTop="@drawable/icon_shicainiu"
-                            />
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="什菜虾"
-                            android:layout_marginTop="240dp"
-                            android:id="@+id/shencaixia"
-                            android:layout_marginLeft="400dp"
-                            android:drawableTop="@drawable/icon_shicaixia"
-                            />
-
-
+                        　
                     </RelativeLayout>
-
+                </ScrollView>
                     <RelativeLayout
                         android:id="@+id/sichuan"
                         android:layout_width="match_parent"
@@ -147,89 +63,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableTop="@drawable/icon_gulaorou"
-                            android:id="@+id/gulaorou"
-                            android:layout_marginTop="0dp"
-                            android:text="咕老肉"
-                            />
-
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="油爆虾"
-                            android:id="@+id/youbaoxia"
-                            android:layout_marginTop="120dp"
-                            android:drawableTop="@drawable/icon_youbaoxia"
-                            />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="肠粉"
-                            android:id="@+id/changfen"
-                            android:layout_marginTop="240dp"
-                            android:drawableTop="@drawable/icon_changfen"/>
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:text="鼓汁凤爪"
-                            android:id="@+id/fengzhua"
-                            android:layout_marginLeft="200dp"
-                            android:drawableTop="@drawable/icon_fengzhua"
-                            />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableTop="@drawable/icon_yumitang"
-                            android:text="玉米排骨汤"
-                            android:layout_marginTop="120dp"
-                            android:id="@+id/paigutang"
-                            android:layout_marginLeft="200dp"
-                            />
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="虾皇饺 "
-                            android:layout_marginTop="240dp"
-                            android:id="@+id/xiahuangjiao"
-                            android:layout_marginLeft="200dp"
-                            android:drawableTop="@drawable/icon_xiahuangjiao"
-                            />
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="菠萝包"
-                            android:layout_marginTop="0dp"
-                            android:id="@+id/boluobao"
-                            android:layout_marginLeft="400dp"
-                            android:drawableTop="@drawable/icon_boluobao"
-
-                            />
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="车仔面"
-                            android:layout_marginTop="120dp"
-                            android:id="@+id/chezaimian"
-                            android:layout_marginLeft="400dp"
-                            android:drawableTop="@drawable/icon_chezaimian"
-                            />
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="叉烧肉"
-                            android:layout_marginTop="240dp"
-                            android:id="@+id/chashaorou"
-                            android:layout_marginLeft="400dp"
-                            android:drawableTop="@drawable/icon_chashaorou"
-                            />
 
                     </RelativeLayout>
 
