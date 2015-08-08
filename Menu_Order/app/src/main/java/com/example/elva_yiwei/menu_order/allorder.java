@@ -20,11 +20,11 @@ public class allorder extends TabActivity {
 
     private Context context;
     private Activity activity;
-    private ListView listview;
+    public static ListView listview;
 
     private ArrayList<String> array=new ArrayList<String>();
     //  private ArrayAdapter myAdapter;
-    private Adapter adapter;
+    public static Adapter adapter;
 
     private Button Jielanji;
     private Button Jielanniu;
@@ -80,20 +80,20 @@ public class allorder extends TabActivity {
 
         listview = (ListView) findViewById(R.id.listView2);
         //  myAdapter = new ArrayAdapter(this,R.layout.all_menu_textview,R.id.textView,list1);
-        adapter = new Adapter(this,array);
+        adapter = new Adapter(this,Order.array);
         // listview.setAdapter(myAdapter);
         // listview.setAdapter(adapter);
 
         Jielanji.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("芥兰鸡");
+                Order.array.add("芥兰鸡");
                 listview.setAdapter(adapter);
             }
         });
 
         Jielanniu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("芥兰牛");
+                Order.array.add("芥兰牛");
                 //   myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -101,7 +101,7 @@ public class allorder extends TabActivity {
 
         Jielanxia.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("芥兰虾");
+                Order.array.add("芥兰虾");
                 //  myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -109,7 +109,7 @@ public class allorder extends TabActivity {
 
         Hunanji.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("湖南鸡");
+                Order.array.add("湖南鸡");
                 //  myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -117,7 +117,7 @@ public class allorder extends TabActivity {
 
         Hunanniu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("湖南牛");
+                Order.array.add("湖南牛");
                 //  myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -125,7 +125,7 @@ public class allorder extends TabActivity {
 
         Hunanxia.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("湖南虾");
+                Order.array.add("湖南虾");
                 //   myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -133,7 +133,7 @@ public class allorder extends TabActivity {
 
         Shencaiji.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("什菜鸡");
+                Order.array.add("什菜鸡");
                 //     myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -141,7 +141,7 @@ public class allorder extends TabActivity {
 
         Shencainiu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("什菜牛");
+                Order.array.add("什菜牛");
                 //  myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -149,7 +149,7 @@ public class allorder extends TabActivity {
 
         Shencaixia.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("什菜虾");
+                Order.array.add("什菜虾");
                 //   myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -168,14 +168,14 @@ public class allorder extends TabActivity {
 
         Xihuangjiao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("虾皇饺");
+                Order.array.add("虾皇饺");
                 listview.setAdapter(adapter);
             }
         });
 
         Boluobao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("菠萝包");
+                Order.array.add("菠萝包");
                 //   myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -183,7 +183,7 @@ public class allorder extends TabActivity {
 
         Chezaimian.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("车仔面");
+                Order.array.add("车仔面");
                 //  myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -191,7 +191,7 @@ public class allorder extends TabActivity {
 
         Gulaorou.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("咕老肉");
+                Order.array.add("咕老肉");
                 //  myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -199,7 +199,7 @@ public class allorder extends TabActivity {
 
         Chashaorou.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("叉烧肉");
+                Order.array.add("叉烧肉");
                 //  myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -207,7 +207,7 @@ public class allorder extends TabActivity {
 
         Yumitang.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("玉米排骨汤");
+                Order.array.add("玉米排骨汤");
                 //   myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -215,7 +215,7 @@ public class allorder extends TabActivity {
 
         Changfen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("肠粉");
+                Order.array.add("肠粉");
                 //     myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -223,7 +223,7 @@ public class allorder extends TabActivity {
 
         Youbaoxia.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("油爆虾");
+                Order.array.add("油爆虾");
                 //  myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
@@ -231,13 +231,11 @@ public class allorder extends TabActivity {
 
         Guzhifengzhua.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                array.add("鼓汁凤爪");
+                Order.array.add("鼓汁凤爪");
                 //   myAdapter.notifyDataSetChanged();
                 listview.setAdapter(adapter);
             }
         });
-
-
 
     }
     public void Submit(View view)
@@ -245,6 +243,8 @@ public class allorder extends TabActivity {
         Intent intent;
         intent = new Intent(this,MainActivity.class);
         startActivity(intent);
+
     }
+
 
 }
