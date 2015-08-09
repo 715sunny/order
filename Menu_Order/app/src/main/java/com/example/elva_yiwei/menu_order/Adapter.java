@@ -45,7 +45,8 @@ public class Adapter extends BaseAdapter {
 
         viewHolder.btnDel.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                array.remove(position);
+                Order.array.remove(position);
+                Order.refresh();
                 notifyDataSetChanged();
             }
         });
