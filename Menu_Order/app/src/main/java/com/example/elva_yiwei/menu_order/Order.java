@@ -14,7 +14,8 @@ public class Order extends TabActivity
 {
     public  static TabHost myTabHost;
     public static ArrayList<String> array=new ArrayList<String>() ;
-
+    public static ArrayList<Integer> array_count = new ArrayList();
+    public static ArrayList<String> arrayView = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,5 +45,26 @@ public class Order extends TabActivity
         });
     }
 
+    public static void refresh(){
+        ArrayList<String> array_name = new ArrayList();
+        arrayView.clear();
+        array_count.clear();
+        for(int i = 0;i<array.size();i++){
+           if(array_name.contains(array.get(i))){
+                int index = array_name.indexOf(array.get(i));
+                array_count.set(index,array_count.get(index)+1);
+           }else{
+               array_name.add(array.get(i));
+               array_count.add(1);
+           }
+
+        }
+       // array.clear();
+
+        for (int i = 0;i<array_name.size();i++){
+            arrayView.add(array_name.get(i)+"*" +array_count.get(i));
+        }
+
+    }
 
 }
