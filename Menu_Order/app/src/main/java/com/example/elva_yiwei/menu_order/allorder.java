@@ -116,11 +116,8 @@ public class allorder extends TabActivity {
 
 
         listview = (ListView) findViewById(R.id.listView2);
-        adapter = new Adapter(this,Order.array);
 
-
-
-
+        adapter = new Adapter(this,Order.arrayView);
 
     }
     public void Submit(View view)
@@ -158,7 +155,7 @@ public class allorder extends TabActivity {
                 @Override
                 public void onClick(View v) {
                     Order.array.add(name);
-
+                    Order.refresh();
                     listview.setAdapter(adapter);
                 }
             });

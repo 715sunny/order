@@ -54,11 +54,8 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
             }
         }
 
-
-
-
         keyboardInput.getKeyboardView().setOnKeyboardActionListener(this);
-        adapter = new Adapter(this,Order.array);
+        adapter = new Adapter(this,Order.arrayView);
         listview.setAdapter(adapter);
 
     }

@@ -53,7 +53,8 @@ public class Adapter extends BaseAdapter {
     }
 
     public void add(String s) {
-        array.add(s);
+        Order.array.add(s);
+        Order.refresh();
         notifyDataSetChanged();
     }
 
