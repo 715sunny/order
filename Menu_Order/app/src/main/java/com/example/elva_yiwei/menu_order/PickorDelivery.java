@@ -25,7 +25,6 @@ public class PickorDelivery extends Activity {
                 t.putExtra("flag", 0);
                 Bundle extras = getIntent().getExtras();
                 String myText = extras.getString("myText");
-                Intent t= new Intent(PickorDelivery.this, Order.class);
                 startActivity(t);
             }
         });
