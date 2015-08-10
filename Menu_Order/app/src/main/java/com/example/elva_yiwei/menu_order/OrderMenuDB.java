@@ -20,7 +20,7 @@ public class OrderMenuDB {
     public static final String MENUSLIST = "menusList";
     public static final String TYPE = "type";
     public static final String PHONENUM = "phoneNum";
-    public static final String ADRESS = "adress";
+    public static final String ADDRESS = "address";
 
     public static final String NAME = "name";
     public static final String IMAGE = "image";
@@ -35,7 +35,7 @@ public class OrderMenuDB {
             + MENUSLIST             + " TEXT NOT NULL, "// MENUSIDLIST
             + TYPE                  + " INTEGER NOT NULL, "//1 not finish  0 finish
             + PHONENUM              + " TEXT NOT NULL, "
-            + ADRESS                + " TEXT NOT NULL"
+            + ADDRESS                + " TEXT NOT NULL"
             + ");" ;
 
     public static final String DATABASE_CREATE_MENUS = "CREATE TABLE "
@@ -43,11 +43,14 @@ public class OrderMenuDB {
             + NAME                  + " TEXT NOT NULL, "
             + IMAGE                 + " TEXT NOT NULL, "
             + SHORTCUTSKEY          + " TEXT NOT NULL, "
-            + TYPE                  + " INTEGER NOT NULL "//1 Chinses 2 US 3 4 5
+            + TYPE                  + " INTEGER NOT NULL "//0 Chinses 1 US 2 3 4
             + ");" ;
 
     private static final String SELECT_MENUS = " SELECT * FROM " + DATABASE_MENUS_TABLE + " GROUP BY "
             + NAME;
+
+    private static final String SELECT_ORDER = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " GROUP BY "
+            + DATE;
 
 
 
@@ -98,13 +101,27 @@ public class OrderMenuDB {
         return db.rawQuery(SELECT_MENUS, null);
     }
 
-    public void persist(String name, String image, String shortcuts, int type) throws SQLException {
+    public Cursor fetchAllOrder() {
+        return db.rawQuery(SELECT_ORDER, null);
+    }
+
+    public void persistM(String name, String image, String shortcuts, int type) throws SQLException {
         ContentValues values = new ContentValues();
         MenusContract.putName(values, name);
         MenusContract.putImage(values, image);
         MenusContract.putShortcutKey(values, shortcuts);
         MenusContract.putType(values,type);
         db.insert(DATABASE_MENUS_TABLE, null, values);
+    }
+
+    public void persistO(String date, String menusList, String type, String phoneNum, String address) throws SQLException {
+        ContentValues values = new ContentValues();
+        OrderContract.putDate(values,date);
+        OrderContract.putType(values, type);
+        OrderContract.putMenusList(values, menusList);
+        OrderContract.putAddress(values, address);
+        OrderContract.putPhoneNum(values,phoneNum);
+        db.insert(DATABASE_ORDERS_TABLE, null, values);
     }
 
 }
