@@ -40,16 +40,6 @@ public class allorder extends TabActivity {
     public static Adapter adapter;
 
 
-    Button Xihuangjiao;
-    Button Chezaimian;
-    Button Boluobao;
-    Button Yumitang;
-    Button Chashaorou;
-    Button Gulaorou;
-    Button Youbaoxia;
-    Button Guzhifengzhua;
-    Button Changfen;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,41 +109,12 @@ public class allorder extends TabActivity {
         }
 
 
-        listview = (ListView) findViewById(R.id.listView2);
+        listview = Order.listview;
 
         adapter = new Adapter(this,Order.arrayView);
 
     }
-    public void Submit(View view)
-    {
-        String menusList = "";
-        for (int i = 0; i<Order.array.size();i++){
-            if(i!=Order.array.size()-1){
-                menusList = menusList + Order.array.get(i)+",";
-            }else{
-                menusList = menusList + Order.array.get(i);
-            }
-        }
 
-        Date nowTime = new Date(System.currentTimeMillis());
-        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
-        String retStrFormatNowDate = sdFormatter.format(nowTime);
-        orderMenuDB.persistO(retStrFormatNowDate,menusList,"0","-1","home");
-
-        Order.array.clear();
-        Order.arrayView.clear();
-        Intent intent;
-        if (Order.flag>0){
-            intent = new Intent(this,setadd.class);
-            startActivity(intent);
-        }
-        else{
-            intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
-        }
-
-
-    }
 
     private void creatButton(ArrayList<MenuEntity> munes, int id){
         DisplayMetrics dm = new DisplayMetrics();

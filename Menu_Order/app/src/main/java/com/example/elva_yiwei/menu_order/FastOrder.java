@@ -44,7 +44,7 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
 
         context=this;
         activity=this;
-        listview=(ListView) findViewById(R.id.listView);
+        listview=Order.listview;
         edit=(EditText) findViewById(R.id.editText);
 
         edit.setInputType(InputType.TYPE_NULL);
@@ -145,20 +145,4 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
 
     }
 
-
-    public void Submit(View view)
-    {
-
-        Intent t;
-
-        if (Order.flag>0){
-            t = new Intent(this,setadd.class);
-            startActivity(t);
-        }
-        else {
-            t = new Intent(this,MainActivity.class);
-            startActivity(t);
-        }
-
-    }
 }

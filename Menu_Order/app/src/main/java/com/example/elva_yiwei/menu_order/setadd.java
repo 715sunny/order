@@ -3,17 +3,25 @@ package com.example.elva_yiwei.menu_order;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class setadd extends ActionBarActivity {
+    private OrderMenuDB orderMenuDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setadd);
+        orderMenuDB = new OrderMenuDB(this);
+        orderMenuDB.open();
     }
 
     @Override
@@ -39,8 +47,28 @@ public class setadd extends ActionBarActivity {
     }
     public void Submit(View view)
     {
+
+        EditText editText1 =(EditText)findViewById(R.id.editText);
+        String menusList = "";
+        for (int i = 0; i<Order.array.size();i++){
+            if(i!=Order.array.size()-1){
+                menusList = menusList + Order.array.get(i)+",";
+            }else{
+                menusList = menusList + Order.array.get(i);
+            }
+        }
+
+        Date nowTime = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
+        String retStrFormatNowDate = sdFormatter.format(nowTime);
+        orderMenuDB.persistO(retStrFormatNowDate,menusList,"0","-1",editText1.getText().toString());
+
+        Order.array.clear();
+        Order.arrayView.clear();
+
         Intent intent;
         intent = new Intent(this,MainActivity.class);
         startActivity(intent);
+
     }
 }
