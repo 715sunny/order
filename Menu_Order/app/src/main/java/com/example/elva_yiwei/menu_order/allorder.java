@@ -2,6 +2,7 @@ package com.example.elva_yiwei.menu_order;
 
 import android.app.Activity;
 import android.app.TabActivity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,7 +17,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class allorder extends TabActivity {
@@ -122,7 +126,22 @@ public class allorder extends TabActivity {
     }
     public void Submit(View view)
     {
+        String menusList = "";
+        for (int i = 0; i<Order.array.size();i++){
+            if(i!=Order.array.size()-1){
+                menusList = menusList + Order.array.get(i)+",";
+            }else{
+                menusList = menusList + Order.array.get(i);
+            }
+        }
+
+        Date nowTime = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
+        String retStrFormatNowDate = sdFormatter.format(nowTime);
+        orderMenuDB.persistO(retStrFormatNowDate,menusList,"0","-1","home");
+
         Order.array.clear();
+        Order.arrayView.clear();
         Intent intent;
         intent = new Intent(this,MainActivity.class);
         startActivity(intent);
