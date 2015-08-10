@@ -143,8 +143,15 @@ public class allorder extends TabActivity {
         Order.array.clear();
         Order.arrayView.clear();
         Intent intent;
-        intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+        if (Order.flag>0){
+            intent = new Intent(this,setadd.class);
+            startActivity(intent);
+        }
+        else{
+            intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
+
 
     }
 
