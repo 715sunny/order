@@ -2,6 +2,7 @@ package com.example.elva_yiwei.menu_order;
 
 
 import android.app.ListActivity;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
@@ -17,14 +18,20 @@ public class OrderList extends ListActivity implements SwipeActionAdapter.SwipeA
     protected  ArrayList<String> a=new ArrayList<>();
     protected ArrayList<String> b=new ArrayList<>();
     protected ArrayList<String> bc;
+    protected OrderMenuDB orderMenuDB;
+    protected Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        a.add("1 30/06/2015 15:49");
-        a.add("2 30/06/2015 15:49");
-        a.add("3 30/06/2015 15:49");
-        a.add("4 30/06/2015 15:49");
-        ((OrderActivity)getParent()).setb(OrderList.this.b);
+        orderMenuDB = new OrderMenuDB(this);
+        orderMenuDB.open();
+        cursor =  orderMenuDB.fetchAllOrder();
+        if(cursor.getCount()!=0) {
+            while (cursor.moveToNext()) {
+                a.add(cursor.getString(cursor.getColumnIndex("date")));
+            }
+        }
+        ((OrderActivity) getParent()).setb(OrderList.this.b);
         ArrayAdapter<String> Stringadapter=new ArrayAdapter<>(this,R.layout.content,R.id.textview,a);
         myAdapter= new SwipeActionAdapter(Stringadapter);
         myAdapter.setListView(getListView());
