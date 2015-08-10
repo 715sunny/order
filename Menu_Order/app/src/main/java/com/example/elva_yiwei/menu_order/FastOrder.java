@@ -2,12 +2,14 @@ package com.example.elva_yiwei.menu_order;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -30,11 +32,15 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
     public static Adapter adapter;
     private OrderMenuDB orderMenuDB;
     private Cursor cursor;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyboard);
+
 
         context=this;
         activity=this;
@@ -57,6 +63,8 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
         keyboardInput.getKeyboardView().setOnKeyboardActionListener(this);
         adapter = new Adapter(this,Order.arrayView);
         listview.setAdapter(adapter);
+
+
 
     }
 
@@ -134,6 +142,23 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
 
     @Override
     public void swipeUp() {
+
+    }
+
+
+    public void Submit(View view)
+    {
+
+        Intent t;
+
+        if (Order.flag>0){
+            t = new Intent(this,setadd.class);
+            startActivity(t);
+        }
+        else {
+            t = new Intent(this,MainActivity.class);
+            startActivity(t);
+        }
 
     }
 }

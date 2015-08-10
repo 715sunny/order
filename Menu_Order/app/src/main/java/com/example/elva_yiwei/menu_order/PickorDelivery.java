@@ -19,6 +19,10 @@ public class PickorDelivery extends Activity {
         pickup_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent t= new Intent();
+                t.setClass(PickorDelivery.this, Order.class);
+                t.putExtra("flag", 0);
                 Bundle extras = getIntent().getExtras();
                 String myText = extras.getString("myText");
                 Intent t= new Intent(PickorDelivery.this, Order.class);
@@ -29,7 +33,9 @@ public class PickorDelivery extends Activity {
         delivery_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent t= new Intent(PickorDelivery.this, Order.class);
+                Intent t= new Intent();
+                t.setClass(PickorDelivery.this, Order.class);
+                t.putExtra("flag", 1);
                 startActivity(t);
             }
         });
