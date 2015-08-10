@@ -54,4 +54,60 @@
         <shortcut>C3</shortcut>
         <type>0</type>
     </item>
+
+
+    <item>
+        <name>油爆虾</name>
+        <img>000</img>
+        <shortcut>A4</shortcut>
+        <type>2</type>
+    </item>
+    <item>
+        <name>咕老肉</name>
+        <img>000</img>
+        <shortcut>A5</shortcut>
+        <type>2</type>
+    </item>
+    <item>
+        <name>肠粉</name>
+        <img>000</img>
+        <shortcut>A6</shortcut>
+        <type>2</type>
+    </item>
+    <item>
+        <name>鼓汁凤爪</name>
+        <img>000</img>
+        <shortcut>B4</shortcut>
+        <type>2</type>
+    </item>
+    <item>
+        <name>玉米排骨汤</name>
+        <img>000</img>
+        <shortcut>B5</shortcut>
+        <type>2</type>
+    </item>
+    <item>
+        <name>虾皇饺</name>
+        <img>000</img>
+        <shortcut>B6</shortcut>
+        <type>2</type>
+    </item>
+    <item>
+        <name>菠萝包</name>
+        <img>000</img>
+        <shortcut>C4</shortcut>
+        <type>2</type>
+    </item>
+    <item>
+        <name>车仔面</name>
+        <img>000</img>
+        <shortcut>C5</shortcut>
+        <type>2</type>
+    </item>
+    <item>
+        <name>叉烧肉</name>
+        <img>000</img>
+        <shortcut>C6</shortcut>
+        <type>2</type>
+    </item>
 </menus>

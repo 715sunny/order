@@ -23,8 +23,10 @@ public class PickorDelivery extends Activity {
                 Intent t= new Intent();
                 t.setClass(PickorDelivery.this, Order.class);
                 t.putExtra("flag", 0);
+                Bundle extras = getIntent().getExtras();
+                String myText = extras.getString("myText");
+                Intent t= new Intent(PickorDelivery.this, Order.class);
                 startActivity(t);
-
             }
         });
 

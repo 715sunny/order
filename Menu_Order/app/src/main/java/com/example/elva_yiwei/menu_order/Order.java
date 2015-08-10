@@ -4,6 +4,7 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -12,9 +13,11 @@ import java.util.ArrayList;
 public class Order extends TabActivity
 
 {
-    private TabHost myTabHost;
+    public  static TabHost myTabHost;
+    public static ArrayList<String> array=new ArrayList<String>() ;
 
     static int flag;
+    public static ArrayList<String> arrayView = new ArrayList();
 
 
     @Override
@@ -40,9 +43,6 @@ public class Order extends TabActivity
         Intent intent2= new Intent(this,allorder.class);
         spec= myTabHost.newTabSpec("AllOrder").setIndicator("全部点单").setContent(intent2);
         myTabHost.addTab(spec);
-
-
-
 
     }
 

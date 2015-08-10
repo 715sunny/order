@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -25,10 +26,10 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
     private Context context;
     private Activity activity;
     private EditText edit;
-    private ListView listview;
+    public static ListView listview;
     final ArrayList<String> array=new ArrayList<String>();
     private HashMap<String,String> menu=new HashMap<String,String>();
-    private Adapter adapter;
+    public static Adapter adapter;
     private OrderMenuDB orderMenuDB;
     private Cursor cursor;
 
@@ -59,11 +60,8 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
             }
         }
 
-
-
-
         keyboardInput.getKeyboardView().setOnKeyboardActionListener(this);
-        adapter = new Adapter(this,array);
+        adapter = new Adapter(this,Order.arrayView);
         listview.setAdapter(adapter);
 
 

@@ -45,7 +45,8 @@ public class Adapter extends BaseAdapter {
 
         viewHolder.btnDel.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                array.remove(position);
+                Order.array.remove(position);
+                Order.refresh();
                 notifyDataSetChanged();
             }
         });
@@ -53,7 +54,8 @@ public class Adapter extends BaseAdapter {
     }
 
     public void add(String s) {
-        array.add(s);
+        Order.array.add(s);
+        Order.refresh();
         notifyDataSetChanged();
     }
 

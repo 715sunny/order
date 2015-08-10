@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
                                  shortcut = xmlParser.nextText();
                             }else if(xmlParser.getName().equals("type")){
                                  type = xmlParser.nextText();
-                                 orderMenuDB.persist(name,img,shortcut,Integer.valueOf(type));
+                                 orderMenuDB.persistM(name,img,shortcut,Integer.valueOf(type));
                                  name = "";
                                  img = "";
                                  shortcut = "";
