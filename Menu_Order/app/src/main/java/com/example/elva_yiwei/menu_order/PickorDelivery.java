@@ -20,15 +20,20 @@ public class PickorDelivery extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent t= new Intent(PickorDelivery.this, Order.class);
+                Intent t= new Intent();
+                t.setClass(PickorDelivery.this, Order.class);
+                t.putExtra("flag", 0);
                 startActivity(t);
+
             }
         });
 
         delivery_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent t= new Intent(PickorDelivery.this, Order.class);
+                Intent t= new Intent();
+                t.setClass(PickorDelivery.this, Order.class);
+                t.putExtra("flag", 1);
                 startActivity(t);
             }
         });
