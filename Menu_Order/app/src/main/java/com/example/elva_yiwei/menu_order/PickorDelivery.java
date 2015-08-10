@@ -19,7 +19,8 @@ public class PickorDelivery extends Activity {
         pickup_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Bundle extras = getIntent().getExtras();
+                String myText = extras.getString("myText");
                 Intent t= new Intent(PickorDelivery.this, Order.class);
                 startActivity(t);
             }
