@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:verticalGap="6dp"
     android:horizontalGap="4dp"
-    android:keyWidth="105dp"
-    android:keyHeight="80dp"
+    android:keyWidth="80dp"
+    android:keyHeight="70dp"
     android:layout_alignParentTop="true"
     android:layout_alignParentRight="true">
 
