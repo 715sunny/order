@@ -25,7 +25,7 @@ public class OrderList extends ListActivity implements SwipeActionAdapter.SwipeA
         super.onCreate(savedInstanceState);
         orderMenuDB = new OrderMenuDB(this);
         orderMenuDB.open();
-        cursor =  orderMenuDB.fetchAllOrder();
+        cursor =  orderMenuDB.fetchUnfinishOrder();
         if(cursor.getCount()!=0) {
             while (cursor.moveToNext()) {
                 a.add(cursor.getString(cursor.getColumnIndex("date")));

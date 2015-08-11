@@ -3,6 +3,7 @@ package com.example.elva_yiwei.menu_order;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
 import android.text.Editable;
@@ -22,6 +23,8 @@ public class setphonenum extends Activity implements KeyboardView.OnKeyboardActi
     private Activity activity;
     private AutoCompleteTextView text;
     private Intent intent;
+    private OrderMenuDB orderMenuDB;
+    private Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -29,16 +32,18 @@ public class setphonenum extends Activity implements KeyboardView.OnKeyboardActi
         setContentView(R.layout.activity_setphonenum);
         context=this;
         activity=this;
+        list=new ArrayList<>();
+        orderMenuDB = new OrderMenuDB(this);
+        orderMenuDB.open();
+        cursor = orderMenuDB.fetchCellPhone();
         setphonekeyboard keyboardInput = new setphonekeyboard(activity,context);
         keyboardInput.getKeyboardView().setOnKeyboardActionListener(this);
-        list=new ArrayList<>();
-        list.add("2012089647");
-        list.add("2012089648");
-        list.add("2012089649");
-        list.add("2012089650");
-        list.add("2012089651");
-        list.add("2012089652");
-        list.add("2012089653");
+        if(cursor.getCount()!=0) {
+            while (cursor.moveToNext()) {
+                list.add(cursor.getString(cursor.getColumnIndex("phoneNum")));
+            }
+        }
+
         ArrayAdapter<String> adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,list);
         text=(AutoCompleteTextView)findViewById(R.id.Autotext);
         text.setInputType(InputType.TYPE_NULL);

@@ -52,6 +52,15 @@ public class OrderMenuDB {
     private static final String SELECT_ORDER = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " GROUP BY "
             + DATE;
 
+    private static final String SELECT_UNFINISHORDER = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE "
+            + TYPE +"=0";
+
+    private static final String SELECT_FINISHORDER = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE "
+            + TYPE +"=1";
+
+    private static final String SELECT_CELLPHONE = " SELECT "+PHONENUM+ " FROM " + DATABASE_ORDERS_TABLE + " WHERE "
+            + PHONENUM +"!= -1";
+
 
 
     private DatabaseHelper dbHelper;
@@ -103,6 +112,18 @@ public class OrderMenuDB {
 
     public Cursor fetchAllOrder() {
         return db.rawQuery(SELECT_ORDER, null);
+    }
+
+    public Cursor fetchCellPhone() {
+        return db.rawQuery(SELECT_CELLPHONE, null);
+    }
+
+    public Cursor fetchUnfinishOrder() {
+        return db.rawQuery(SELECT_UNFINISHORDER, null);
+    }
+
+    public Cursor fetchFinishOrder() {
+        return db.rawQuery(SELECT_FINISHORDER, null);
     }
 
     public void persistM(String name, String image, String shortcuts, int type) throws SQLException {
