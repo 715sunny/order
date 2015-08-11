@@ -76,6 +76,7 @@ public class setphonenum extends Activity implements KeyboardView.OnKeyboardActi
         else if(primaryCode== KeyEvent.ACTION_DOWN)
         {
             Intent t =  new Intent(setphonenum.this, PickorDelivery.class);
+            t.putExtra("cellphone", editable.toString());
             startActivity(t);
 
         }

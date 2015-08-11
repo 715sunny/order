@@ -27,7 +27,7 @@ public class OrderActivity extends TabActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order);
+        setContentView(R.layout.avtivity_ordergrid);
         mTabHost=(TabHost)findViewById(android.R.id.tabhost);
         TabHost.TabSpec spec;
         Intent intent;

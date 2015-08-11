@@ -8,6 +8,7 @@ import android.widget.Button;
 
 
 public class PickorDelivery extends Activity {
+    private String cellphone = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +16,8 @@ public class PickorDelivery extends Activity {
         setContentView(R.layout.activity_pickupordelivery);
         Button delivery_button = (Button) findViewById(R.id.delivery);
         Button pickup_button = (Button) findViewById(R.id.pickup);
+        Intent intent = getIntent();
+        cellphone = intent.getStringExtra("cellphone");
 
         pickup_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -22,6 +25,7 @@ public class PickorDelivery extends Activity {
 
                 Intent t= new Intent();
                 t.setClass(PickorDelivery.this, Order.class);
+                t.putExtra("cellphone",cellphone);
                 t.putExtra("flag", 0);
                 startActivity(t);
             }
@@ -32,6 +36,7 @@ public class PickorDelivery extends Activity {
             public void onClick(View v) {
                 Intent t= new Intent();
                 t.setClass(PickorDelivery.this, Order.class);
+                t.putExtra("cellphone",cellphone);
                 t.putExtra("flag", 1);
                 startActivity(t);
             }
