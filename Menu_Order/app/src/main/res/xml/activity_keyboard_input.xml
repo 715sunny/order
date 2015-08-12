@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:verticalGap="6dp"
     android:horizontalGap="4dp"
-    android:keyWidth="80dp"
+    android:keyWidth="100dp"
     android:keyHeight="70dp"
     android:layout_alignParentTop="true"
     android:layout_alignParentRight="true">
@@ -39,7 +39,7 @@
     <Row>
         <Key android:codes="-5" android:keyIcon="@drawable/icon_key_delete" android:isRepeatable="true" android:horizontalGap="3dp" />
         <Key android:codes="48" android:keyLabel="0" />
-        <Key android:codes="0" android:keyLabel="Done" />
+        <Key android:codes="0" android:keyLabel="添加" />
     </Row>
 
 </Keyboard>
