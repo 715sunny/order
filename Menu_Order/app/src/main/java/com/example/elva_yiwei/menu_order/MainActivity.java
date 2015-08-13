@@ -1,11 +1,14 @@
 package com.example.elva_yiwei.menu_order;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 
 import org.w3c.dom.Document;
@@ -27,6 +30,8 @@ public class MainActivity extends Activity {
 
     private OrderMenuDB orderMenuDB;
     private Cursor cursor;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -111,4 +116,25 @@ public class MainActivity extends Activity {
 
         }
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0){
+            new AlertDialog.Builder(this)
+                    .setTitle("退出")
+                    .setMessage("确定退出？")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            MainActivity.this.finish();
+                        }
+                    })
+                    .setNegativeButton("取消", null)
+                    .show();
+        return true;
+    }else
+            return super.onKeyDown(keyCode, event);
+    }
+
+
 }
