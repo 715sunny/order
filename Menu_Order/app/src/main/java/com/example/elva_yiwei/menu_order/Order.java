@@ -117,7 +117,7 @@ public class Order extends TabActivity
 
             Order.array.clear();
             Order.arrayView.clear();
-            intent = new Intent(this,MainActivity.class);
+            intent = new Intent(this,OrderActivity.class);
             startActivity(intent);
         }
 

@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/libs/swipeactionadapter-1.4.3.jar"
+        jar="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/libs/swipeactionadapter-1.4.3.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="9af9f18c4aaaddaae92110d90aa4f764ef9e5276">
-        <dex dex="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/build/intermediates/pre-dexed/debug/swipeactionadapter-1.4.3-5e900f1787c36258650c9292e53d5a6c528008b8.jar" />
+        <dex dex="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/build/intermediates/pre-dexed/debug/swipeactionadapter-1.4.3-68713b9e12da8a1b53147ee4a55f8589f376c708.jar" />
     </item>
     <item
-        jar="/Users/boyu/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-ba4e8b0945e92266cfff65fa15704bd0559b3a34.jar" />
-    </item>
-    <item
-        jar="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jar="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-418e750e9e5994f03a3c1c3deefe61afe1572720.jar" />
+        <dex dex="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-980e9690608efa936862b563b30139e9cd2c1b29.jar" />
     </item>
     <item
-        jar="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jar="/Users/sunny/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/build/intermediates/pre-dexed/debug/classes-2fd6ba7f68003199cf07595445d9adb1732b9865.jar" />
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-b30eec2eca0d4a736ff6f10d8a40bc54a9132764.jar" />
     </item>
     <item
-        jar="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jar="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/boyu/Documents/innvoatis/order/Menu_Order/app/build/intermediates/pre-dexed/debug/classes-e9ac841c4680471ce2c0c561cf156b7a4facdcaf.jar" />
+        <dex dex="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/build/intermediates/pre-dexed/debug/classes-33b6f531844e22cf579e84ae2dbfe6e73de50ddb.jar" />
+    </item>
+    <item
+        jar="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/sunny/Desktop/workspace/Menu_order1/order/Menu_Order/app/build/intermediates/pre-dexed/debug/classes-e4858c9c6f1a0347ec3f55db342ee358cd7ac6ec.jar" />
     </item>
 
 </items>

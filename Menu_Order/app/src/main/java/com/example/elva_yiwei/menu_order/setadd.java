@@ -67,7 +67,7 @@ public class setadd extends ActionBarActivity {
         Order.arrayView.clear();
 
         Intent intent;
-        intent = new Intent(this,MainActivity.class);
+        intent = new Intent(this,OrderActivity.class);
         startActivity(intent);
 
     }
