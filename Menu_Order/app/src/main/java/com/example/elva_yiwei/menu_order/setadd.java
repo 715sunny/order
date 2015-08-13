@@ -50,11 +50,11 @@ public class setadd extends ActionBarActivity {
 
         EditText editText1 =(EditText)findViewById(R.id.editText);
         String menusList = "";
-        for (int i = 0; i<Order.array.size();i++){
-            if(i!=Order.array.size()-1){
-                menusList = menusList + Order.array.get(i)+",";
+        for (int i = 0; i<Order.arrayView.size();i++){
+            if(i!=Order.arrayView.size()-1){
+                menusList = menusList + Order.arrayView.get(i)+",";
             }else{
-                menusList = menusList + Order.array.get(i);
+                menusList = menusList + Order.arrayView.get(i);
             }
         }
 
