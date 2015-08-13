@@ -44,8 +44,6 @@ public class Order extends TabActivity
         myTabHost.addTab(spec);
 
 
-
-
         Intent intent2= new Intent(this,allorder.class);
         spec= myTabHost.newTabSpec("AllOrder").setIndicator("全部点单").setContent(intent2);
         myTabHost.addTab(spec);
@@ -97,11 +95,11 @@ public class Order extends TabActivity
         }
         else{
             String menusList = "";
-            for (int i = 0; i<Order.array.size();i++){
-                if(i!=Order.array.size()-1){
-                    menusList = menusList + Order.array.get(i)+",";
+            for (int i = 0; i<Order.arrayView.size();i++){
+                if(i!=Order.arrayView.size()-1){
+                    menusList = menusList + Order.arrayView.get(i)+",";
                 }else{
-                    menusList = menusList + Order.array.get(i);
+                    menusList = menusList + Order.arrayView.get(i);
                 }
             }
 
