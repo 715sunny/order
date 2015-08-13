@@ -58,7 +58,7 @@ public class OrderMenuDB {
     private static final String SELECT_FINISHORDER = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE "
             + TYPE +"=1";
 
-    private static final String SELECT_CELLPHONE = " SELECT "+PHONENUM+ " FROM " + DATABASE_ORDERS_TABLE + " WHERE "
+    private static final String SELECT_CELLPHONE = " SELECT DISTINCT "+PHONENUM+ " FROM " + DATABASE_ORDERS_TABLE + " WHERE "
             + PHONENUM +"!= -1";
 
 
