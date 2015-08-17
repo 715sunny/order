@@ -6,22 +6,23 @@ import android.os.Bundle;
 import android.widget.TabHost;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 public class OrderActivity extends TabActivity {
     private TabHost mTabHost;
-    protected ArrayList<String> b;
-    protected ArrayList<String> bs;
-    public void setb(ArrayList<String> b){
+    protected ArrayList<Map<String, Object>> b;
+    protected ArrayList<Map<String, Object>> bs;
+    public void setb(ArrayList<Map<String, Object>> b){
         OrderActivity.this.b=b;
     }
-    public  ArrayList<String>  getb(){
+    public  ArrayList<Map<String, Object>>  getb(){
         return OrderActivity.this.b;
     }
-    public void setbs(ArrayList<String> b){
+    public void setbs(ArrayList<Map<String, Object>> b){
         OrderActivity.this.bs=b;
     }
-    public  ArrayList<String>  getbs(){
+    public ArrayList<Map<String, Object>> getbs(){
         return OrderActivity.this.bs;
     }
     @Override

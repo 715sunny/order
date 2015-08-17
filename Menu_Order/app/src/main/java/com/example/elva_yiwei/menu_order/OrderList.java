@@ -10,14 +10,17 @@ import com.wdullaer.swipeactionadapter.SwipeActionAdapter;
 import com.wdullaer.swipeactionadapter.SwipeDirections;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class OrderList extends ListActivity implements SwipeActionAdapter.SwipeActionListener{
 
     protected SwipeActionAdapter myAdapter;
-    protected  ArrayList<String> a=new ArrayList<>();
-    protected ArrayList<String> b=new ArrayList<>();
-    protected ArrayList<String> bc;
+    protected  ArrayList<Map<String, Object>> a=new ArrayList<>();
+    protected ArrayList<Map<String, Object>> b=new ArrayList<>();
+    protected ArrayList<Map<String, Object>> bc;
     protected OrderMenuDB orderMenuDB;
     protected Cursor cursor;
     @Override
@@ -26,20 +29,40 @@ public class OrderList extends ListActivity implements SwipeActionAdapter.SwipeA
         orderMenuDB = new OrderMenuDB(this);
         orderMenuDB.open();
         cursor =  orderMenuDB.fetchUnfinishOrder();
-        if(cursor.getCount()!=0) {
-            while (cursor.moveToNext()) {
-                a.add(cursor.getString(cursor.getColumnIndex("date")));
-            }
-        }
+
+        a= (ArrayList<Map<String, Object>>) getData();
         ((OrderActivity) getParent()).setb(OrderList.this.b);
-        ArrayAdapter<String> Stringadapter=new ArrayAdapter<>(this,R.layout.content,R.id.textview,a);
+        AdapterOrder Stringadapter = new AdapterOrder(this, a);
+
+        // ArrayAdapter<String> Stringadapter=new ArrayAdapter<>(this,R.layout.content,R.id.textview,a);
         myAdapter= new SwipeActionAdapter(Stringadapter);
         myAdapter.setListView(getListView());
         myAdapter.setSwipeActionListener(this);
         setListAdapter(myAdapter);
-        myAdapter.addBackground(SwipeDirections.DIRECTION_NORMAL_LEFT, R.layout.row_bg_left)
-                .addBackground(SwipeDirections.DIRECTION_NORMAL_RIGHT, R.layout.row_bg_right);
+
     }
+
+    public List<Map<String, Object>> getData(){
+        List<Map<String, Object>> list=new ArrayList<Map<String,Object>>();
+        cursor =  orderMenuDB.fetchUnfinishOrder();
+        if(cursor.getCount()!=0) {
+            while (cursor.moveToNext()) {
+                Map<String, Object> map=new HashMap<String, Object>();
+                String tempStr = " 时间:  " + cursor.getString(cursor.getColumnIndex("date"));
+                if(!cursor.getString(cursor.getColumnIndex("address")).equals("home")){
+                    tempStr = tempStr +"  地址:  "+cursor.getString(cursor.getColumnIndex("address"));
+                }
+                if(!cursor.getString(cursor.getColumnIndex("phoneNum")).equals("-1")){
+                    tempStr = tempStr +"  电话:  "+cursor.getString(cursor.getColumnIndex("phoneNum"));
+                }
+                map.put("title", tempStr);
+                map.put("info", cursor.getString(cursor.getColumnIndex("menusList")));
+                list.add(map);
+            }
+        }
+        return list;
+    }
+
     @Override
     public void onResume(){
         bc=((OrderActivity)getParent()).getbs();
@@ -75,15 +98,23 @@ public class OrderList extends ListActivity implements SwipeActionAdapter.SwipeA
                 case SwipeDirections.DIRECTION_NORMAL_LEFT:
                     break;
                 case SwipeDirections.DIRECTION_FAR_RIGHT:
-                    this.b.add(a.get(position));
+                    Map<String, Object> p = a.get(position);
+                    String str = (String) p.get("title");
+                    updataDb(str.substring(6,26));
                     this.a.remove(position);
                 break;
                 case SwipeDirections.DIRECTION_NORMAL_RIGHT:
-                    this.b.add(a.get(position));
+                    Map<String, Object> p1 = a.get(position);
+                    String str1= (String) p1.get("title");
+                    updataDb(str1.substring(6,26));
                     this.a.remove(position);
                     break;
             }
             myAdapter.notifyDataSetChanged();
         }
+    }
+
+    private void updataDb(String s) {
+        orderMenuDB.updateDbbytime(s);
     }
 }

@@ -15,11 +15,13 @@ import java.util.Date;
 
 public class setadd extends ActionBarActivity {
     private OrderMenuDB orderMenuDB;
+    private String cellphone = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setadd);
+        cellphone = getIntent().getStringExtra("cellphone");
         orderMenuDB = new OrderMenuDB(this);
         orderMenuDB.open();
     }
@@ -61,8 +63,11 @@ public class setadd extends ActionBarActivity {
         Date nowTime = new Date(System.currentTimeMillis());
         SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
         String retStrFormatNowDate = sdFormatter.format(nowTime);
-        orderMenuDB.persistO(retStrFormatNowDate,menusList,"0","-1",editText1.getText().toString());
-
+        if(cellphone.equals("")) {
+            orderMenuDB.persistO(retStrFormatNowDate, menusList, "0", "-1", editText1.getText().toString());
+        }else{
+            orderMenuDB.persistO(retStrFormatNowDate, menusList, "0", cellphone, editText1.getText().toString());
+        }
         Order.array.clear();
         Order.arrayView.clear();
 

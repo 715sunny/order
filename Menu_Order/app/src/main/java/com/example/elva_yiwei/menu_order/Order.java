@@ -91,6 +91,7 @@ public class Order extends TabActivity
         Intent intent;
         if (Order.flag>0){
             intent = new Intent(this,setadd.class);
+            intent.putExtra("cellphone",cellphone);
             startActivity(intent);
         }
         else{

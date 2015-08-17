@@ -75,6 +75,12 @@ public class OrderMenuDB {
         dbHelper = new DatabaseHelper(orderMenusContext);
     }
 
+    public void updateDbbytime(String s) {
+        ContentValues values2= new ContentValues();
+        values2.put("type",1);
+        db.update(DATABASE_ORDERS_TABLE,values2,"date=?",new String[]{s+" "});
+    }
+
     private static class DatabaseHelper extends SQLiteOpenHelper
     {
 

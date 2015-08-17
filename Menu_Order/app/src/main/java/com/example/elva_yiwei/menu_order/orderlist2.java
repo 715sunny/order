@@ -9,13 +9,17 @@ import com.wdullaer.swipeactionadapter.SwipeActionAdapter;
 import com.wdullaer.swipeactionadapter.SwipeDirections;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class orderlist2 extends ListActivity implements SwipeActionAdapter.SwipeActionListener{
 
     protected SwipeActionAdapter myAdapter;
-    protected ArrayList<String> a=new ArrayList<>();
-    protected ArrayList<String> b=new ArrayList<>();
+    protected  ArrayList<Map<String, Object>> a=new ArrayList<>();
+    protected ArrayList<Map<String, Object>> b=new ArrayList<>();
+    protected ArrayList<Map<String, Object>> bc;
     protected OrderMenuDB orderMenuDB;
     protected Cursor cursor;
 
@@ -25,25 +29,19 @@ public class orderlist2 extends ListActivity implements SwipeActionAdapter.Swipe
         orderMenuDB = new OrderMenuDB(this);
         orderMenuDB.open();
         cursor =  orderMenuDB.fetchFinishOrder();
-        if(cursor.getCount()!=0) {
-            while (cursor.moveToNext()) {
-                a.add(cursor.getString(cursor.getColumnIndex("date")));
-            }
-        }
-       // a=((OrderActivity)getParent()).getb();
-      //  ((OrderActivity)getParent()).setbs(orderlist2.this.b);
-        ArrayAdapter<String> Stringadapter = new ArrayAdapter<>(this, R.layout.content, R.id.textview, a);
-        myAdapter = new SwipeActionAdapter(Stringadapter);
+        a= (ArrayList<Map<String, Object>>) getData();
+        AdapterOrder Stringadapter = new AdapterOrder(this, a);
+        myAdapter= new SwipeActionAdapter(Stringadapter);
         myAdapter.setListView(getListView());
         myAdapter.setSwipeActionListener(this);
         setListAdapter(myAdapter);
-        myAdapter.addBackground(SwipeDirections.DIRECTION_NORMAL_LEFT, R.layout.row_bg_left)
-                .addBackground(SwipeDirections.DIRECTION_NORMAL_RIGHT, R.layout.row_bg_right);
+       
     }
 
     @Override
     public void onResume(){
         super.onResume();
+        a= (ArrayList<Map<String, Object>>) getData();
         myAdapter.notifyDataSetChanged();
     }
     @Override
@@ -77,4 +75,26 @@ public class orderlist2 extends ListActivity implements SwipeActionAdapter.Swipe
             myAdapter.notifyDataSetChanged();
         }
     }
+
+    public List<Map<String, Object>> getData(){
+        List<Map<String, Object>> list=new ArrayList<Map<String,Object>>();
+        cursor =  orderMenuDB.fetchFinishOrder();
+        if(cursor.getCount()!=0) {
+            while (cursor.moveToNext()) {
+                Map<String, Object> map=new HashMap<String, Object>();
+                String tempStr = " 时间:  " + cursor.getString(cursor.getColumnIndex("date"));
+                if(!cursor.getString(cursor.getColumnIndex("address")).equals("home")){
+                    tempStr = tempStr +"  地址:  "+cursor.getString(cursor.getColumnIndex("address"));
+                }
+                if(!cursor.getString(cursor.getColumnIndex("phoneNum")).equals("-1")){
+                    tempStr = tempStr +"  电话:  "+cursor.getString(cursor.getColumnIndex("phoneNum"));
+                }
+                map.put("title", tempStr);
+                map.put("info", cursor.getString(cursor.getColumnIndex("menusList")));
+                list.add(map);
+            }
+        }
+        return list;
+    }
+
 }
