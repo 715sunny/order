@@ -27,7 +27,7 @@
         <android.inputmethodservice.KeyboardView
             android:id="@+id/fast_order_keyboard"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="400dp"
+            android:layout_marginLeft="200dp"
             android:layout_width="match_parent"
             android:layout_height="500dp"
 

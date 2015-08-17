@@ -35,6 +35,13 @@
         android:layout_gravity="right"
         android:orientation="vertical"
         android:weightSum="1">
+        <TextView
+            android:layout_width="317dp"
+            android:layout_height="50dp"
+            android:text="已点菜品"
+            android:textSize="22dp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
         <ListView
             android:layout_width="317dp"
             android:id="@+id/listView2"

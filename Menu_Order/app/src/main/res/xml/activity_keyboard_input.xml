@@ -4,7 +4,7 @@
     android:verticalGap="6dp"
     android:horizontalGap="4dp"
     android:keyWidth="100dp"
-    android:keyHeight="70dp"
+    android:keyHeight="60dp"
     android:layout_alignParentTop="true"
     android:layout_alignParentRight="true">
 
