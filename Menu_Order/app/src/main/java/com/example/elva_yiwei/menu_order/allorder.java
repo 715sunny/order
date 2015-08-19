@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
@@ -128,10 +129,10 @@ public class allorder extends TabActivity {
             Btn[i].setId(Integer.valueOf(munes.get(i).getId()));
             Btn[i].setText(munes.get(i).getName());
             RelativeLayout.LayoutParams btParams = new RelativeLayout.LayoutParams ((width-650)/4,67);  //设置按钮的宽度和高度
-            if (i%4 == 0) {
+            if (i%3 == 0) {
                 j++;
             }
-            btParams.leftMargin = 60+ ((width-600)/4+10)*(i%4);   //横坐标定位
+            btParams.leftMargin = 60+ ((width-600)/4+10)*(i%3);   //横坐标定位
             btParams.topMargin = 30 + 70*j;   //纵坐标定位
             ralativeLayout.addView(Btn[i],btParams);   //将按钮放入layout组件
         }

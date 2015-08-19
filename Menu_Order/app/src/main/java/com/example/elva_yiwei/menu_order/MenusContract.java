@@ -13,6 +13,7 @@ public class MenusContract {
     public static final String KEY_IMAGE = "image";
     public static final String KEY_SHORTCUTSKEY = "shortcutsKey";
     public static final String KEY_TYPE = "type";
+    public static final String KEY_PRICE = "price";
 
 
     public static int getId(Cursor cursor) {
@@ -48,5 +49,11 @@ public class MenusContract {
     }
     public static void putShortcutKey(ContentValues values, String shortcutKey) {
         values.put(KEY_SHORTCUTSKEY, shortcutKey);
+    }
+    public static String getPrice(Cursor cursor) {
+        return cursor.getString(cursor.getColumnIndexOrThrow(KEY_PRICE));
+    }
+    public static void putPrice(ContentValues values, String price) {
+        values.put(KEY_PRICE, price);
     }
 }

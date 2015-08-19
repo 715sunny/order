@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
             XmlResourceParser xmlParser = this.getResources().getXml(R.xml.menulist);
             initMenus(xmlParser);
         }
+        interGATEGORY();
+
     }
     public void onClick1(View view)
     {
@@ -74,6 +76,7 @@ public class MainActivity extends Activity {
             String img = "";
             String shortcut = "";
             String type = "";
+            String price = "";
             while (true){
                 if(eventType == XmlPullParser.START_DOCUMENT){
 
@@ -95,11 +98,14 @@ public class MainActivity extends Activity {
                                  shortcut = xmlParser.nextText();
                             }else if(xmlParser.getName().equals("type")){
                                  type = xmlParser.nextText();
-                                 orderMenuDB.persistM(name,img,shortcut,Integer.valueOf(type));
-                                 name = "";
-                                 img = "";
-                                 shortcut = "";
-                                 type = "";
+                            }else if(xmlParser.getName().equals("price")){
+                                price = xmlParser.nextText();
+                                orderMenuDB.persistM(name,img,shortcut,Integer.valueOf(type),price);
+                                name = "";
+                                img = "";
+                                shortcut = "";
+                                type = "";
+                                price = "";
                             }
 
                             break;
@@ -136,5 +142,12 @@ public class MainActivity extends Activity {
             return super.onKeyDown(keyCode, event);
     }
 
+    private void interGATEGORY() {
+        orderMenuDB.persistC("美式中餐", "0");
+        orderMenuDB.persistC("川菜", "1");
+        orderMenuDB.persistC("粤菜", "2");
+        orderMenuDB.persistC("日式料理", "3");
+        orderMenuDB.persistC("韩国料理","4");
+    }
 
 }
