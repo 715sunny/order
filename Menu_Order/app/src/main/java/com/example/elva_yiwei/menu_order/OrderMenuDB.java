@@ -14,6 +14,7 @@ public class OrderMenuDB {
     private static final String DATABASE_NAME = "OrderMenu.db";
     private static final String DATABASE_ORDERS_TABLE = "Orders";
     private static final String DATABASE_MENUS_TABLE = "Menus";
+    private static final String DATABASE_CATEGORY_TABLE = "CategoryItem";
 
     public static final String ID = "id";
     public static final String DATE = "date";
@@ -25,6 +26,9 @@ public class OrderMenuDB {
     public static final String NAME = "name";
     public static final String IMAGE = "image";
     public static final String SHORTCUTSKEY = "shortcutsKey";
+    public static final String PRICE = "price";
+
+
 
 
     private static final int DATABASE_VERSION = 2;
@@ -43,7 +47,14 @@ public class OrderMenuDB {
             + NAME                  + " TEXT NOT NULL, "
             + IMAGE                 + " TEXT NOT NULL, "
             + SHORTCUTSKEY          + " TEXT NOT NULL, "
-            + TYPE                  + " INTEGER NOT NULL "//0 Chinses 1 US 2 3 4
+            + TYPE                  + " INTEGER NOT NULL, "//0 Chinses 1 US 2 3 4
+            + PRICE                 + " TEXT NOT NULL "
+            + ");" ;
+
+    public static final String DATABASE_CREATE_GATEGORY = "CREATE TABLE "
+            + DATABASE_CATEGORY_TABLE  + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + NAME                  + " TEXT NOT NULL, "
+            + TYPE                  + " INTEGER NOT NULL"
             + ");" ;
 
     private static final String SELECT_MENUS = " SELECT * FROM " + DATABASE_MENUS_TABLE + " GROUP BY "
@@ -93,9 +104,13 @@ public class OrderMenuDB {
         {
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_ORDERS_TABLE );
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_MENUS_TABLE );
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_CATEGORY_TABLE );
             db.execSQL(DATABASE_CREATE_ORDERS);
             db.execSQL(DATABASE_CREATE_MENUS);
+            db.execSQL(DATABASE_CREATE_GATEGORY);
         }
+
+
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
@@ -132,23 +147,32 @@ public class OrderMenuDB {
         return db.rawQuery(SELECT_FINISHORDER, null);
     }
 
-    public void persistM(String name, String image, String shortcuts, int type) throws SQLException {
+    public void persistM(String name, String image, String shortcuts, int type, String price) throws SQLException {
         ContentValues values = new ContentValues();
         MenusContract.putName(values, name);
         MenusContract.putImage(values, image);
         MenusContract.putShortcutKey(values, shortcuts);
-        MenusContract.putType(values,type);
+        MenusContract.putType(values, type);
+        MenusContract.putPrice(values, price);
         db.insert(DATABASE_MENUS_TABLE, null, values);
     }
 
     public void persistO(String date, String menusList, String type, String phoneNum, String address) throws SQLException {
         ContentValues values = new ContentValues();
-        OrderContract.putDate(values,date);
+        OrderContract.putDate(values, date);
         OrderContract.putType(values, type);
         OrderContract.putMenusList(values, menusList);
         OrderContract.putAddress(values, address);
-        OrderContract.putPhoneNum(values,phoneNum);
+        OrderContract.putPhoneNum(values, phoneNum);
         db.insert(DATABASE_ORDERS_TABLE, null, values);
     }
+
+    public void persistC(String name, String type) throws SQLException {
+        ContentValues values = new ContentValues();
+        CategoryContract.putName(values,name);
+        CategoryContract.putType(values,type);
+        db.insert(DATABASE_CATEGORY_TABLE, null, values);
+    }
+
 
 }
