@@ -52,6 +52,14 @@
             android:name=".setadd"
             android:label="@string/title_activity_setadd" >
         </activity>
+        <activity
+            android:name=".bluetooth"
+            android:label="@string/title_activity_bluetooth" >
+        </activity>
+        <activity
+            android:name=".setting"
+            android:label="@string/title_activity_setting" >
+        </activity>
     </application>
 
 </manifest>

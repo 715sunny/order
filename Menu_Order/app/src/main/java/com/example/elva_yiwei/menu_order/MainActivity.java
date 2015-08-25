@@ -67,6 +67,14 @@ public class MainActivity extends Activity {
         intent = new Intent(this,OrderActivity.class);
         startActivity(intent);
     }
+
+    public void onClick4(View view)
+    {
+        Intent intent;
+        intent = new Intent(this,setting.class);
+        startActivity(intent);
+    }
+
     public void initMenus(XmlResourceParser xmlParser) {
         try{
             int eventType = xmlParser.next();

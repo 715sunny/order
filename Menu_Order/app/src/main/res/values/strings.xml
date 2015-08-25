@@ -12,4 +12,6 @@
     <string name="title_activity_setaddress">setaddress</string>
     <string name="title_activity_pickupordelivery">pickupordelivery</string>
     <string name="title_activity_setadd">setadd</string>
+    <string name="title_activity_bluetooth">bluetooth</string>
+    <string name="title_activity_setting">setting</string>
 </resources>
