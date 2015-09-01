@@ -57,11 +57,16 @@ public class OrderMenuDB {
             + TYPE                  + " INTEGER NOT NULL"
             + ");" ;
 
-    private static final String SELECT_MENUS = " SELECT * FROM " + DATABASE_MENUS_TABLE + " GROUP BY "
+    private static final String SELECT_MENUS = " SELECT * FROM " + DATABASE_MENUS_TABLE + " ORDER BY "
             + NAME;
 
-    private static final String SELECT_ORDER = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " GROUP BY "
+
+
+    private static final String SELECT_ORDER = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " ORDER BY "
             + DATE;
+
+    private static final String SELECT_Category = " SELECT * FROM " + DATABASE_CATEGORY_TABLE + " ORDER BY "
+            + TYPE;
 
     private static final String SELECT_UNFINISHORDER = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE "
             + TYPE +"=0";
@@ -89,7 +94,7 @@ public class OrderMenuDB {
     public void updateDbbytime(String s) {
         ContentValues values2= new ContentValues();
         values2.put("type",1);
-        db.update(DATABASE_ORDERS_TABLE,values2,"date=?",new String[]{s+" "});
+        db.update(DATABASE_ORDERS_TABLE, values2, "date=?", new String[]{s + " "});
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper
@@ -130,9 +135,23 @@ public class OrderMenuDB {
     public Cursor fetchAllMenus() {
         return db.rawQuery(SELECT_MENUS, null);
     }
+    public Cursor fetchMenusById(String type) {
+         String SELECT_MENUS_BY_ID = " SELECT * FROM " + DATABASE_MENUS_TABLE + " WHERE "+ " TYPE = "+ type +" GROUP BY "
+                + NAME;
+        return db.rawQuery(SELECT_MENUS_BY_ID, null);
+    }
+
+    public Cursor fetchCategoryByname(String name) {
+        String SELECT_MENUS_BY_ID = " SELECT * FROM " + DATABASE_CATEGORY_TABLE + " WHERE "+ " NAME = '"+ name +"'";
+        return db.rawQuery(SELECT_MENUS_BY_ID, null);
+    }
 
     public Cursor fetchAllOrder() {
         return db.rawQuery(SELECT_ORDER, null);
+    }
+
+    public Cursor fetchAllCategory() {
+        return db.rawQuery(SELECT_Category, null);
     }
 
     public Cursor fetchCellPhone() {
@@ -169,10 +188,18 @@ public class OrderMenuDB {
 
     public void persistC(String name, String type) throws SQLException {
         ContentValues values = new ContentValues();
-        CategoryContract.putName(values,name);
-        CategoryContract.putType(values,type);
+        CategoryContract.putName(values, name);
+        CategoryContract.putType(values, type);
         db.insert(DATABASE_CATEGORY_TABLE, null, values);
     }
 
+    public void deleteCategory(String  id){
+
+        db.delete( DATABASE_CATEGORY_TABLE,"id=?",new String[]{id});
+    }
+
+    public void updateCategory(String name){
+
+    }
 
 }
