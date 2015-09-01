@@ -38,6 +38,12 @@ public class setting extends ActionBarActivity {
         Intent intent = new Intent(setting.this, DeviceListActivity.class);
         startActivityForResult(intent, REQUEST_CONNECT_DEVICE);
     }
+    public void onClick2(View view)
+    {
+        Intent intent;
+        intent = new Intent(this,EditMenus.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onStart() {
@@ -45,13 +51,16 @@ public class setting extends ActionBarActivity {
 
         // If BT is not on, request that it be enabled.
         // setupChat() will then be called during onActivityResult
-        if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-            // Otherwise, setup the chat session
-        } else {
-            if (mChatService == null) setupChat();
+        if(mBluetoothAdapter!=null){
+            if (!mBluetoothAdapter.isEnabled()) {
+                Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+                // Otherwise, setup the chat session
+            } else {
+                if (mChatService == null) setupChat();
+            }
         }
+
     }
 
 
