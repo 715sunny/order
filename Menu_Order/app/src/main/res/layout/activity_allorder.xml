@@ -39,43 +39,6 @@
                     >
 
 
-                    <RelativeLayout
-                        android:id="@+id/chinese"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        　
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/sichuan"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/hongkong"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:id="@+id/japanese"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/korea"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                    </LinearLayout>
-
                 </FrameLayout>
 
             </LinearLayout>
