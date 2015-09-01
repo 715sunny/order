@@ -59,7 +59,7 @@ public class EditMenus  extends Activity {
 
         TextView categoryname = (TextView) findViewById(R.id.categoryname);
         categoryname.setText((CharSequence) categorysList.get(0).get("title"));
-        categoryType = (String) categorysList.get(0).get("id");
+        categoryType = (String) categorysList.get(0).get("type");
 
        categorysViewList.setOnItemClickListener(new OnItemClickListener() {
             @Override
