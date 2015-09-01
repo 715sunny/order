@@ -46,8 +46,9 @@ public class MainActivity extends Activity {
         if(cursor.getCount()==0){
             XmlResourceParser xmlParser = this.getResources().getXml(R.xml.menulist);
             initMenus(xmlParser);
+            interGATEGORY();
         }
-        interGATEGORY();
+
 
     }
     public void onClick1(View view)
