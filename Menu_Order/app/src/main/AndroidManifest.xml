@@ -60,6 +60,10 @@
             android:name=".setting"
             android:label="@string/title_activity_setting" >
         </activity>
+        <activity
+            android:name=".EditMenus"
+            android:label="EditMenus" >
+        </activity>
         <activity android:name=".DeviceListActivity"
             android:label="@string/select_device" />
 
