@@ -30,8 +30,7 @@ public class MainActivity extends Activity {
 
     private OrderMenuDB orderMenuDB;
     private Cursor cursor;
-
-
+    private BT bt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

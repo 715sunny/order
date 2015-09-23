@@ -101,9 +101,11 @@ public class Order extends TabActivity
             arrayView.add(array_name.get(i)+"*" +array_count.get(i)+"    "+MenuAprice.get(array_name.get(i))*array_count.get(i));
             totalprice = totalprice+MenuAprice.get(array_name.get(i))*array_count.get(i);
         }
-        taxView.setText(String.valueOf(new java.text.DecimalFormat("#.00").format(totalprice*0.07)));
+
+        taxView.setText(String.valueOf(new java.text.DecimalFormat("#.00").format(totalprice * 0.07)));
         priceView.setText(String.valueOf(new java.text.DecimalFormat("#.00").format(totalprice)));
-        totalpriceView.setText(String.valueOf(new java.text.DecimalFormat("#.00").format(totalprice*1.07)));
+        totalpriceView.setText(String.valueOf(new java.text.DecimalFormat("#.00").format(totalprice * 1.07)));
+
     }
     public void freetax(View view){
         taxView.setText(new java.text.DecimalFormat("#.00").format(0));
@@ -112,7 +114,9 @@ public class Order extends TabActivity
 
     public void Submit(View view)
     {
-
+        arrayView.add("price " + priceView.getText().toString());
+        arrayView.add("tax " + taxView.getText().toString());
+        arrayView.add("total "+totalpriceView.getText().toString());
         Intent intent;
         if (Order.flag>0){
             intent = new Intent(this,setadd.class);
@@ -130,7 +134,7 @@ public class Order extends TabActivity
             }
 
             Date nowTime = new Date(System.currentTimeMillis());
-            SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
+            SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss ");
             String retStrFormatNowDate = sdFormatter.format(nowTime);
             if(cellphone!=null){
                 orderMenuDB.persistO(retStrFormatNowDate,menusList,"0",cellphone,"home");

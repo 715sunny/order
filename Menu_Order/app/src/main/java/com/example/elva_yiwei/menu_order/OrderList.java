@@ -48,16 +48,16 @@ public class OrderList extends ListActivity implements SwipeActionAdapter.SwipeA
         if(cursor.getCount()!=0) {
             while (cursor.moveToNext()) {
                 Map<String, Object> map=new HashMap<String, Object>();
-                String tempStr = " 时间:  " + cursor.getString(cursor.getColumnIndex("date"));
+                String tempStr = "时间: " + cursor.getString(cursor.getColumnIndex("date"));
                 if(!cursor.getString(cursor.getColumnIndex("address")).equals("home")){
-                    tempStr = tempStr +"  地址:  "+cursor.getString(cursor.getColumnIndex("address"));
+                    tempStr = tempStr +" 地址: "+cursor.getString(cursor.getColumnIndex("address"));
                 }
                 if(!cursor.getString(cursor.getColumnIndex("phoneNum")).equals("-1")){
-                    tempStr = tempStr +"  电话:  "+cursor.getString(cursor.getColumnIndex("phoneNum"));
+                    tempStr = tempStr +"  电话: "+cursor.getString(cursor.getColumnIndex("phoneNum"));
                 }
                 map.put("title", tempStr);
                 map.put("info", cursor.getString(cursor.getColumnIndex("menusList")));
-                list.add(map);
+                list.add(0,map);
             }
         }
         return list;
