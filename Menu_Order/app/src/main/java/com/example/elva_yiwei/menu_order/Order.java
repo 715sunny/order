@@ -57,12 +57,12 @@ public class Order extends TabActivity
         }
 
         Intent intent1= new Intent(this,FastOrder.class);
-        spec= myTabHost.newTabSpec("FastOrder").setIndicator("快速点单").setContent(intent1);
+        spec= myTabHost.newTabSpec("FastOrder").setIndicator("FastOrder").setContent(intent1);
         myTabHost.addTab(spec);
 
 
         Intent intent2= new Intent(this,allorder.class);
-        spec= myTabHost.newTabSpec("AllOrder").setIndicator("全部点单").setContent(intent2);
+        spec= myTabHost.newTabSpec("AllOrder").setIndicator("Allorder").setContent(intent2);
         myTabHost.addTab(spec);
 
         myTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {

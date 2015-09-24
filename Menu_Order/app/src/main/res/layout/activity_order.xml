@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="217dp"
             android:layout_height="50dp"
-            android:text="已点菜品"
+            android:text="Dishes Placed"
             android:textSize="22dp"
             android:layout_gravity="center"
             android:gravity="center"/>
@@ -55,7 +55,7 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="35dp"
-            android:text="金额"
+            android:text="price"
             android:textSize="13dp"
             android:layout_gravity="center"
             android:gravity="center"/>
@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="35dp"
-                android:text="税"
+                android:text="tax"
                 android:textSize="13dp"
                 android:layout_gravity="center"
                 android:gravity="center"/>
@@ -97,7 +97,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="35dp"
-                android:text="总价"
+                android:text="Total"
                 android:textSize="13dp"
                 android:layout_gravity="center"
                 android:gravity="center"/>
@@ -114,8 +114,8 @@
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:layout_margin="20dp"
-            android:text="提 交"
-            android:textSize="25dp"
+            android:text="SUBMIT"
+            android:textSize="20dp"
             android:id="@+id/tijiao"
             android:onClick="Submit"
             android:layout_alignParentBottom="true"

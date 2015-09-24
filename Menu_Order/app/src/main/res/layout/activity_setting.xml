@@ -16,7 +16,7 @@
         android:layout_height="100dp"
         android:background="#FFE4E1"
 
-        android:text="   蓝   牙"
+        android:text="Printer connect"
         android:textSize="40dp"
         android:textColor="#000000"
         android:gravity="center_vertical"
@@ -33,8 +33,8 @@
         android:layout_height="100dp"
         android:background="#FFE4E1"
 
-        android:text="   菜单管理"
-        android:textSize="40dp"
+        android:text="Menu manag"
+        android:textSize="30dp"
         android:textColor="#000000"
         android:gravity="center_vertical"
 
@@ -52,7 +52,7 @@
         android:layout_height="100dp"
         android:background="#FFE4E1"
 
-        android:text="   打   印"
+        android:text="Printer test"
         android:textSize="40dp"
         android:textColor="#000000"
         android:gravity="center_vertical"

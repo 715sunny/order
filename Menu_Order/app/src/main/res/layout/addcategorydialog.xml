@@ -5,7 +5,7 @@
     android:id="@+id/dialog">
     <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:id="@+id/tvname" android:text="名称" />
+        android:id="@+id/tvname" android:text="Name" />
     <EditText android:layout_height="wrap_content"
         android:layout_width="wrap_content" android:id="@+id/etname"/>
 

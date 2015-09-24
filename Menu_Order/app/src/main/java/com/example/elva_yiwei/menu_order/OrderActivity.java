@@ -50,12 +50,12 @@ public class OrderActivity extends TabActivity {
         Intent intent;
         intent= new Intent(this,OrderList.class);
         spec= mTabHost.newTabSpec("orderlist1")
-                .setIndicator("未完成订单")
+                .setIndicator("unfinished order")
                 .setContent(intent);
         mTabHost.addTab(spec);
         intent= new Intent(this,orderlist2.class);
         spec= mTabHost.newTabSpec("orderlist2")
-                .setIndicator("已完成订单")
+                .setIndicator("finifhed order")
                 .setContent(intent);
         mTabHost.addTab(spec);
 
@@ -234,4 +234,10 @@ public class OrderActivity extends TabActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onClick(View view)
+    {
+        Intent intent;
+        intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
 }

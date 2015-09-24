@@ -48,6 +48,8 @@ public class MainActivity extends Activity {
             interGATEGORY();
         }
 
+        View v = findViewById(R.id.button4);//找到你要设透明背景的layout 的id
+        v.getBackground().setAlpha(10);//0~255透明度值
 
     }
     public void onClick1(View view)
@@ -135,15 +137,15 @@ public class MainActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0){
             new AlertDialog.Builder(this)
-                    .setTitle("退出")
-                    .setMessage("确定退出？")
-                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    .setTitle("quit?")
+                    .setMessage("sure to quit？")
+                    .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface arg0, int arg1) {
                             MainActivity.this.finish();
                         }
                     })
-                    .setNegativeButton("取消", null)
+                    .setNegativeButton("no", null)
                     .show();
         return true;
     }else
