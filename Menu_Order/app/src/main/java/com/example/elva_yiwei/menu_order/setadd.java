@@ -1,5 +1,6 @@
 package com.example.elva_yiwei.menu_order;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class setadd extends ActionBarActivity {
+public class setadd extends Activity {
     private OrderMenuDB orderMenuDB;
     private String cellphone = "";
 

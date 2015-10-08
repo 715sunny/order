@@ -20,21 +20,24 @@
             android:paddingBottom="8dip"
             android:singleLine="true"
             android:layout_margin="8dip"
+            android:textSize="13dp"
+            android:textStyle="bold"
             />
 
         <Button
             android:id="@+id/del"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:singleLine="true"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             android:layout_gravity="center_vertical"
             android:layout_alignParentRight="true"
             android:paddingLeft="8dip"
             android:paddingRight="8dip"
             android:textColor="#ffffff"
-            android:background="@drawable/btn_style_delete"
-            android:text="   删  除"
+            android:background="@drawable/redbutton"
+            android:text="delete"
+            android:textSize="15dp"
             android:layout_margin="8dip"
             android:visibility="visible"
 

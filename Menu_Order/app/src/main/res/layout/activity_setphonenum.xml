@@ -8,9 +8,19 @@
         android:layout_width="550dp"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <TextView
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="100dp"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Tel"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            />
         <AutoCompleteTextView
             android:layout_width="300dp"
             android:layout_height="70dp"
+            android:layout_marginLeft="80dp"
             android:textSize="40sp"
             android:completionThreshold="1"
             android:id="@+id/Autotext"
@@ -21,7 +31,8 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:background="@android:color/transparent"
+        android:keyBackground="@drawable/shape"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:visibility="visible"

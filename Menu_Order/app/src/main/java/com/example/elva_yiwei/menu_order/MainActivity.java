@@ -38,6 +38,9 @@ public class MainActivity extends Activity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //AppManager.getAppManager().addActivity(this);
+
         orderMenuDB = new OrderMenuDB(this);
         orderMenuDB.open();
         cursor = orderMenuDB.fetchAllMenus();
@@ -140,6 +143,7 @@ public class MainActivity extends Activity {
                     .setTitle("quit?")
                     .setMessage("sure to quit？")
                     .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                        //AppManager.getAppManager().AppExit(this);
                         @Override
                         public void onClick(DialogInterface arg0, int arg1) {
                             MainActivity.this.finish();
@@ -153,11 +157,11 @@ public class MainActivity extends Activity {
     }
 
     private void interGATEGORY() {
-        orderMenuDB.persistC("美式中餐", "0");
-        orderMenuDB.persistC("川菜", "1");
-        orderMenuDB.persistC("粤菜", "2");
-        orderMenuDB.persistC("日式料理", "3");
-        orderMenuDB.persistC("韩国料理","4");
+        orderMenuDB.persistC("Chinese", "0");
+        orderMenuDB.persistC("Mexician", "1");
+        orderMenuDB.persistC("Italitan", "2");
+        orderMenuDB.persistC("Japanese", "3");
+        orderMenuDB.persistC("Korean","4");
     }
 
 }

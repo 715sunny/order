@@ -40,7 +40,7 @@ public class FastOrder extends Activity implements KeyboardView.OnKeyboardAction
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyboard);
-
+        //AppManager.getAppManager().addActivity(this);
 
         context=this;
         activity=this;

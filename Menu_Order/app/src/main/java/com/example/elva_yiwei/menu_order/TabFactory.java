@@ -2,6 +2,7 @@ package com.example.elva_yiwei.menu_order;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -15,6 +16,7 @@ public class TabFactory  implements TabHost.TabContentFactory {
     private Context con;
     private OrderMenuDB orderMenuDB;
     private Cursor cursor;
+    public Drawable drawable;
     public TabFactory(Context c){
         con=c;
     }
@@ -33,6 +35,7 @@ public class TabFactory  implements TabHost.TabContentFactory {
                 Btn[cursor.getPosition()]=new Button(con);
                 Btn[cursor.getPosition()].setId(Integer.valueOf(cursor.getString(cursor.getColumnIndex("id"))));
                 Btn[cursor.getPosition()].setText(cursor.getString(cursor.getColumnIndex("name")));
+                Btn[cursor.getPosition()].setBackgroundResource(R.drawable.button);
                 RelativeLayout.LayoutParams btParams = new RelativeLayout.LayoutParams (97,62);
                 if (cursor.getPosition()%4 == 0) {
                     j++;

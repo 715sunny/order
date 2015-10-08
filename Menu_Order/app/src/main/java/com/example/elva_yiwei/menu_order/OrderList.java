@@ -34,12 +34,10 @@ public class OrderList extends ListActivity implements SwipeActionAdapter.SwipeA
         ((OrderActivity) getParent()).setb(OrderList.this.b);
         AdapterOrder Stringadapter = new AdapterOrder(this, a);
 
-        // ArrayAdapter<String> Stringadapter=new ArrayAdapter<>(this,R.layout.content,R.id.textview,a);
         myAdapter= new SwipeActionAdapter(Stringadapter);
         myAdapter.setListView(getListView());
         myAdapter.setSwipeActionListener(this);
         setListAdapter(myAdapter);
-
     }
 
     public List<Map<String, Object>> getData(){
@@ -106,7 +104,7 @@ public class OrderList extends ListActivity implements SwipeActionAdapter.SwipeA
                 case SwipeDirections.DIRECTION_NORMAL_RIGHT:
                     Map<String, Object> p1 = a.get(position);
                     String str1= (String) p1.get("title");
-                    updataDb(str1.substring(6,26));
+                    updataDb(str1.substring(6,25));
                     this.a.remove(position);
                     break;
             }

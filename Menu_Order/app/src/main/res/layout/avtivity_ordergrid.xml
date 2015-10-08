@@ -24,12 +24,12 @@
         </FrameLayout>
         <Button
             android:id="@+id/button4"
-            android:layout_width="150dp"
+            android:layout_width="80dp"
             android:layout_height="80dp"
-            android:text="下一单"
+            android:background="@drawable/home"
             android:textSize="30dp"
             android:textColor="#000000"
-            android:layout_marginLeft="850dp"
+            android:layout_marginLeft="950dp"
             android:onClick="onClick">
 
         </Button>

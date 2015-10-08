@@ -8,24 +8,26 @@
         android:layout_height="match_parent">
         <Button
             android:id="@+id/delivery"
-            android:layout_width="300dp"
-            android:layout_height="200dp"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
             android:text="delivery"
             android:textSize="40dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="150dp"
-            android:background="#FFDAB9"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/shape"
+            android:drawableTop="@drawable/delivery"
             />
 
         <Button
             android:id="@+id/pickup"
-            android:layout_width="300dp"
-            android:layout_height="200dp"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
             android:text="pickup"
             android:textSize="40dp"
-            android:background="#FFE4E1"
-            android:layout_marginLeft="400dp"
-            android:layout_marginTop="150dp"
+            android:background="@drawable/shape"
+            android:drawableTop="@drawable/pickup"
+            android:layout_marginLeft="500dp"
+            android:layout_marginTop="80dp"
             android:layout_alignLeft="@+id/delivery"
 
             />

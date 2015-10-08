@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <Keyboard
+<Keyboard
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:verticalGap="6dp"
-    android:horizontalGap="4dp"
-    android:keyWidth="100dp"
-    android:keyHeight="60dp"
+    android:verticalGap="0dp"
+    android:horizontalGap="dp"
+    android:keyWidth="80dp"
+    android:keyHeight="80dp"
     android:layout_alignParentTop="true"
     android:layout_alignParentRight="true">
 
 
     <Row>
-        <Key android:codes="65" android:keyLabel="A" />
-        <Key android:codes="66" android:keyLabel="B" />
-        <Key android:codes="67" android:keyLabel="C" />
+        <Key android:codes="65" android:keyIcon="@drawable/ic_letter_a" />
+        <Key android:codes="66" android:keyIcon="@drawable/ic_letter_b" />
+        <Key android:codes="67" android:keyIcon="@drawable/ic_letter_c" />
 
     </Row>
 
 
     <Row>
-        <Key android:codes="49" android:keyLabel="1" />
-        <Key android:codes="50" android:keyLabel="2" />
-        <Key android:codes="51" android:keyLabel="3" />
+        <Key android:codes="49" android:keyIcon="@drawable/ic_letter_1" />
+        <Key android:codes="50" android:keyIcon="@drawable/ic_letter_2" />
+        <Key android:codes="51" android:keyIcon="@drawable/ic_letter_3" />
 
     </Row>
 
     <Row>
-        <Key android:codes="52" android:keyLabel="4" />
-        <Key android:codes="53" android:keyLabel="5" />
-        <Key android:codes="54" android:keyLabel="6" />
+        <Key android:codes="52" android:keyIcon="@drawable/ic_letter_4" />
+        <Key android:codes="53" android:keyIcon="@drawable/ic_letter_5" />
+        <Key android:codes="54" android:keyIcon="@drawable/ic_letter_6" />
     </Row>
 
     <Row>
-        <Key android:codes="55" android:keyLabel="7" />
-        <Key android:codes="56" android:keyLabel="8" />
-        <Key android:codes="57" android:keyLabel="9" />
+        <Key android:codes="55" android:keyIcon="@drawable/ic_letter_7" />
+        <Key android:codes="56" android:keyIcon="@drawable/ic_letter_8" />
+        <Key android:codes="57" android:keyIcon="@drawable/ic_letter_9" />
     </Row>
 
     <Row>
-        <Key android:codes="-5" android:keyIcon="@drawable/icon_key_delete" android:isRepeatable="true" android:horizontalGap="3dp" />
-        <Key android:codes="48" android:keyLabel="0" />
-        <Key android:codes="0" android:keyLabel="添加" />
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_letter_delete" android:isRepeatable="true" android:horizontalGap="3dp" />
+        <Key android:codes="48" android:keyIcon="@drawable/ic_letter_0" />
+        <Key android:codes="0"  android:keyIcon="@drawable/ic_letter_done" />
     </Row>
 
 </Keyboard>

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.elva_yiwei.menu_order"
-        minSdkVersion 8
+        minSdkVersion 13
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -21,6 +21,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.0'
     compile files('libs/RT_Android_Bluetooth_SDK_141106.jar')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:design:22.2.1'
 }

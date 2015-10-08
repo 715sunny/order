@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
 
 
-public class setting extends ActionBarActivity {
+public class setting extends Activity {
     private static final String TAG = "BloothPrinterActivity";
     private static final boolean D = true;
 //
@@ -38,19 +38,9 @@ public class setting extends ActionBarActivity {
     public static final int MESSAGE_TOAST = 5;
 
     /** Called when the activity is first created. */
-    private Button mBtnConnetBluetoothDevice = null;
-    private Button mBtnQuit = null;
     private Button mBtnPrint = null;
-    private Button mBtnPrintOption = null;
-    private Button mBtnTest = null;
-    private Button mBtnInquiry = null;
+
     private EditText mPrintContent = null;
-    private CheckBox mBeiKuan = null;
-    private CheckBox mUnderline = null;
-    private CheckBox mBold = null;
-    private CheckBox mBeiGao = null;
-    private CheckBox mMinifont = null;
-    private CheckBox mHightlight = null;
 
     public static BT bt;
 
@@ -81,13 +71,6 @@ public class setting extends ActionBarActivity {
     private void InitUIControl(){
         mBtnPrint = (Button)findViewById(R.id.button3);
         mBtnPrint.setOnClickListener(mBtnPrintOnClickListener);
-        //mPrintContent = (EditText)findViewById(R.id.edt_print_content);
-//        mBeiKuan = (CheckBox)findViewById(R.id.checkbox_beikuan);
-//        mUnderline = (CheckBox)findViewById(R.id.checkbox_underline);
-//        mBold = (CheckBox)findViewById(R.id.checkbox_bold);
-//        mBeiGao = (CheckBox)findViewById(R.id.checkbox_beigao);
-//        mMinifont = (CheckBox)findViewById(R.id.checkbox_minifont);
-//        mHightlight = (CheckBox)findViewById(R.id.checkbox_hightlight);
     }
 
     @Override
@@ -241,7 +224,7 @@ public class setting extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-
+        //getActionBar().hide();
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
