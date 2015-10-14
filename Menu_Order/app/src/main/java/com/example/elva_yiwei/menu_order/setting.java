@@ -65,7 +65,13 @@ public class setting extends Activity {
 
         //String tmpContent = mPrintContent.getText().toString();
         String tmpContent = "连接成功+/r";
-        BluetoothPrintDriver.BT_Write(tmpContent );
+        BluetoothPrintDriver.BT_Write(tmpContent);
+    }
+
+    public void onClick4(View view){
+        Intent intent;
+        intent = new Intent(this,Tongji.class);
+        startActivity(intent);
     }
 
     private void InitUIControl(){

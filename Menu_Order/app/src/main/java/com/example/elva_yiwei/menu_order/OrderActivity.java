@@ -82,19 +82,8 @@ public class OrderActivity extends TabActivity {
     public static final int MESSAGE_TOAST = 5;
 
     /** Called when the activity is first created. */
-    private Button mBtnConnetBluetoothDevice = null;
-    private Button mBtnQuit = null;
-    private Button mBtnPrint = null;
-    private Button mBtnPrintOption = null;
-    private Button mBtnTest = null;
-    private Button mBtnInquiry = null;
+
     private EditText mPrintContent = null;
-    private CheckBox mBeiKuan = null;
-    private CheckBox mUnderline = null;
-    private CheckBox mBold = null;
-    private CheckBox mBeiGao = null;
-    private CheckBox mMinifont = null;
-    private CheckBox mHightlight = null;
 
 
 

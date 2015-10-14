@@ -24,18 +24,6 @@
         android:layout_height="350dp"
         android:layout_weight="0.41">
     </ListView>
-        <Button
-            android:layout_width="130dp"
-            android:layout_height="80dp"
-            android:layout_margin="20dp"
-            android:text="添加类别"
-            android:textSize="25dp"
-            android:id="@+id/addcategory"
-            android:onClick="Addcategory"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="left" />
     </LinearLayout>
 
     <LinearLayout

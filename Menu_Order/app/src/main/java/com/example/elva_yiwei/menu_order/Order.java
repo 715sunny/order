@@ -98,7 +98,7 @@ public class Order extends TabActivity
         }
 
         for (int i = 0;i<array_name.size();i++){
-            arrayView.add(array_name.get(i)+"*" +array_count.get(i)+"    "+MenuAprice.get(array_name.get(i))*array_count.get(i));
+            arrayView.add(array_name.get(i)+"*" +array_count.get(i)+"     "+MenuAprice.get(array_name.get(i))*array_count.get(i));
             totalprice = totalprice+MenuAprice.get(array_name.get(i))*array_count.get(i);
         }
 
@@ -134,7 +134,7 @@ public class Order extends TabActivity
             }
 
             Date nowTime = new Date(System.currentTimeMillis());
-            SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss ");
+            SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
             String retStrFormatNowDate = sdFormatter.format(nowTime);
             if(cellphone!=null){
                 orderMenuDB.persistO(retStrFormatNowDate,menusList,"0",cellphone,"home");
