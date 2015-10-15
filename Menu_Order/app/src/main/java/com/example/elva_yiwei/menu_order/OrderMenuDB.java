@@ -166,6 +166,14 @@ public class OrderMenuDB {
         return db.rawQuery(SELECT_FINISHORDER, null);
     }
 
+
+
+//    public String fetchDate() {
+//         db.rawQuery(SELECT_FINISHORDER, null);
+//        String data=db.rawQuery(SELECT_FINISHORDER, null).
+//    }
+
+    //menu
     public void persistM(String name, String image, String shortcuts, int type, String price) throws SQLException {
         ContentValues values = new ContentValues();
         MenusContract.putName(values, name);
@@ -176,6 +184,7 @@ public class OrderMenuDB {
         db.insert(DATABASE_MENUS_TABLE, null, values);
     }
 
+    //order
     public void persistO(String date, String menusList, String type, String phoneNum, String address) throws SQLException {
         ContentValues values = new ContentValues();
         OrderContract.putDate(values, date);
@@ -186,6 +195,7 @@ public class OrderMenuDB {
         db.insert(DATABASE_ORDERS_TABLE, null, values);
     }
 
+    //menu catigary
     public void persistC(String name, String type) throws SQLException {
         ContentValues values = new ContentValues();
         CategoryContract.putName(values, name);

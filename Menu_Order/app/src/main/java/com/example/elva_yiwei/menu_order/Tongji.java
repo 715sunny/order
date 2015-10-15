@@ -158,7 +158,7 @@ public class Tongji  extends Activity {
         cursor =  orderMenuDB.fetchAllOrder();
         int ordernum=0;
 
-        if(cursor.getCount()!=0) {
+        if(cursor.getCount()!=0 ) {
             //List<Info> info = new ArrayList<Info>();
             while (cursor.moveToNext()) {
                 Map<String, Object> map=new HashMap<String, Object>();
@@ -218,7 +218,7 @@ public class Tongji  extends Activity {
         //排序
         Collections.sort(infoIds, new Comparator<Map.Entry<String, Integer>>() {
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return (o1.getKey()).toString().compareTo(o2.getKey());
+                return (o2.getKey()).toString().compareTo(o1.getKey());
             }
         });
 
@@ -251,7 +251,7 @@ public class Tongji  extends Activity {
         map2.put("title",total);
         list1.add(0,map2);
         Map<String, Object> map3=new HashMap<String, Object>();
-        String ordernumstring= "order numver:"+String.valueOf(ordernum);
+        String ordernumstring= "order number:"+String.valueOf(ordernum);
         map3.put("title",ordernumstring);
         list1.add(0,map3);
 
