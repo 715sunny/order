@@ -17,9 +17,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -152,10 +154,13 @@ public class Tongji  extends Activity {
 
     public List<Map<String, Object>> getData(){
 
+        Date nowTime = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd ");
+        String retStrFormatNowDate = sdFormatter.format(nowTime);
 
         List<Map<String, Object>> list1=new ArrayList<Map<String,Object>>();
         List<String> list = new ArrayList<String>();
-        cursor =  orderMenuDB.fetchAllOrder();
+        cursor =  orderMenuDB.fetchOrderByDate(retStrFormatNowDate+"00:00:00",retStrFormatNowDate+"12:59:59");
         int ordernum=0;
 
         if(cursor.getCount()!=0 ) {
@@ -218,7 +223,7 @@ public class Tongji  extends Activity {
         //排序
         Collections.sort(infoIds, new Comparator<Map.Entry<String, Integer>>() {
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return (o2.getKey()).toString().compareTo(o1.getKey());
+                return o2.getValue().compareTo(o1.getValue());
             }
         });
 

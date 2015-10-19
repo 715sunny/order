@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by boyu on 15/8/4.
@@ -145,6 +146,21 @@ public class OrderMenuDB {
         String SELECT_MENUS_BY_ID = " SELECT * FROM " + DATABASE_CATEGORY_TABLE + " WHERE "+ " NAME = '"+ name +"'";
         return db.rawQuery(SELECT_MENUS_BY_ID, null);
     }
+
+    public Cursor fetchOrderByDate(String startdate, String enddate) {
+        //String SELECT_ORDER_BY_DATE = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE "+ " DATE between" + startdate + "and enddate";
+        String SELECT_ORDER_BY_DATE = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE date between '"+startdate+"' and '"+enddate+"' ";
+
+        //Cursor a= db.rawQuery(SELECT_ORDER_BY_DATE, new String[]{startdate,enddate});
+        Cursor a= db.rawQuery(SELECT_ORDER_BY_DATE, null);
+
+        //Log.v(v,a.getCount()+"[][][][][]=====================================================");
+
+        return a;
+        //return db.rawQuery(SELECT_ORDER_BY_DATE, new String[]{startdate,enddate});
+    }
+
+
 
     public Cursor fetchAllOrder() {
         return db.rawQuery(SELECT_ORDER, null);
