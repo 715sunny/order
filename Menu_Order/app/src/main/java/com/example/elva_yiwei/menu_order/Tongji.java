@@ -51,6 +51,10 @@ public class Tongji  extends Activity {
         orderMenuDB.open();
         context = this ;
 
+        Date nowTime = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd ");
+        final String retStrFormatNowDate = sdFormatter.format(nowTime);
+
 
         categorysViewList = (ListView) findViewById(R.id.timelist);
         menusViewList = (ListView) findViewById(R.id.menuslist);
@@ -60,7 +64,7 @@ public class Tongji  extends Activity {
 
         categorysViewList.setAdapter(Stringadapter);
         //menusList = (ArrayList<Map<String, Object>>) getDataM(String.valueOf(categorysList.get(0).get("type")));
-        menusList = (ArrayList<Map<String, Object>>) getData();
+        menusList = (ArrayList<Map<String, Object>>) getData(retStrFormatNowDate,String.valueOf(categorysList.get(0).get("type")));
         Stringadapter1 = new TimeAdapter(context, menusList);
         menusViewList.setAdapter(Stringadapter1);
 
@@ -72,12 +76,14 @@ public class Tongji  extends Activity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
-                menusList = (ArrayList<Map<String, Object>>) getData();
+
+                //menusList = (ArrayList<Map<String, Object>>) getDataM(String.valueOf(categorysList.get(arg2).get("type")));
+                menusList = (ArrayList<Map<String, Object>>) getData(retStrFormatNowDate,String.valueOf(categorysList.get(arg2).get("type")));
                 Stringadapter1 = new TimeAdapter(context, menusList);
                 menusViewList.setAdapter(Stringadapter1);
                 TextView add=(TextView)findViewById(R.id.categoryname);
                 add.setText(categorysList.get(arg2).get("title").toString());
-                //categoryType = categorysList.get(arg2).get("type").toString();
+                categoryType = categorysList.get(arg2).get("type").toString();
             }
 
         });
@@ -102,7 +108,7 @@ public class Tongji  extends Activity {
         Map<String, Object> map4=new HashMap<String, Object>();
         map4.put("title", ("详单查询"));
         map4.put("type", "3");
-        list.add(map4);
+        //list.add(map4);
         return list;
     }
     public List<Map<String, Object>> getDataM(String id){
@@ -152,15 +158,75 @@ public class Tongji  extends Activity {
 
 
 
-    public List<Map<String, Object>> getData(){
+    public List<Map<String, Object>> getData(String date,String type){
 
-        Date nowTime = new Date(System.currentTimeMillis());
-        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd ");
-        String retStrFormatNowDate = sdFormatter.format(nowTime);
+//        Date nowTime = new Date(System.currentTimeMillis());
+//        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd ");
+//        String retStrFormatNowDate = sdFormatter.format(nowTime);
+
+        String startdate=null ;
+        String enddate=null;
 
         List<Map<String, Object>> list1=new ArrayList<Map<String,Object>>();
         List<String> list = new ArrayList<String>();
-        cursor =  orderMenuDB.fetchOrderByDate(retStrFormatNowDate+"00:00:00",retStrFormatNowDate+"12:59:59");
+        if (Integer.parseInt(type)==0){
+            //cursor =  orderMenuDB.fetchOrderByDate(date+"00:00:00",date+"23:59:59");
+            startdate =date+"00:00:00";
+            enddate=date+"23:59:59";
+        }
+        if (Integer.parseInt(type)==1){
+            Date nowTime = new Date(System.currentTimeMillis());
+            SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM");
+            SimpleDateFormat sdFormatter1 = new SimpleDateFormat("MM");
+            SimpleDateFormat sdFormatter2 = new SimpleDateFormat("yyyy");
+            String retStrFormatNowDate = sdFormatter.format(nowTime);
+            String retStrFormatNowMonth = sdFormatter1.format(nowTime);
+            String retStrFormatNowYear = sdFormatter2.format(nowTime);
+            if(Integer.parseInt(retStrFormatNowMonth)==12){
+                int a=Integer.parseInt(retStrFormatNowYear);
+                a++;
+
+                enddate=String.valueOf(a)+"-01-01 00:00:00";
+                startdate= retStrFormatNowDate+"-01 00:00:00";
+            }
+
+            //cursor =  orderMenuDB.fetchOrderByDate(startdate, "2015-"+String.valueOf(Integer.parseInt(retStrFormatNowMonth)+1) + "-01 " + "00:00:00");
+
+        }
+        if(Integer.parseInt(type)==2){
+            Date nowTime = new Date(System.currentTimeMillis());
+            SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM");
+            SimpleDateFormat sdFormatter1 = new SimpleDateFormat("MM");
+            SimpleDateFormat sdFormatter2 = new SimpleDateFormat("yyyy");
+            String retStrFormatNowDate = sdFormatter.format(nowTime);
+            String retStrFormatNowMonth = sdFormatter1.format(nowTime);
+            String retStrFormatNowYear = sdFormatter2.format(nowTime);
+            if(Integer.parseInt(retStrFormatNowMonth)<=3){
+                startdate=retStrFormatNowYear+"-01-01 00:00:00";
+                enddate=retStrFormatNowYear+"-04-01 00:00:00";
+            }
+            if(Integer.parseInt(retStrFormatNowMonth)<=6 && Integer.parseInt(retStrFormatNowMonth)>=4){
+                startdate=retStrFormatNowYear+"-04-01 00:00:00";
+                enddate=retStrFormatNowYear+"-07-01 00:00:00";
+            }
+            if(Integer.parseInt(retStrFormatNowMonth)<=9 && Integer.parseInt(retStrFormatNowMonth)>=7){
+                startdate=retStrFormatNowYear+"-07-01 00:00:00";
+                enddate=retStrFormatNowYear+"-10-01 00:00:00";
+            }
+            if(Integer.parseInt(retStrFormatNowMonth)<=12 && Integer.parseInt(retStrFormatNowMonth)>=10){
+                startdate=retStrFormatNowYear+"-10-01 00:00:00";
+                enddate=retStrFormatNowYear+"-12-31 23:59:59";
+            }
+        }
+
+        if(Integer.parseInt(type)==2){
+
+        }
+
+
+        cursor =  orderMenuDB.fetchOrderByDate(startdate, enddate);
+//        cursor =  orderMenuDB.fetchOrderByDate(retStrFormatNowDate+"00:00:00",retStrFormatNowDate+"23:59:59");
+
         int ordernum=0;
 
         if(cursor.getCount()!=0 ) {
