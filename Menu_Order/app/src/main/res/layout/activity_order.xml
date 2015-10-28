@@ -38,9 +38,10 @@
         <TextView
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:text="Dishes Placed"
+            android:text="已点菜品"
             android:textSize="22dp"
             android:layout_gravity="center"
+            android:textColor="#000000"
             android:gravity="center"/>
         <ListView
             android:layout_width="300dp"
@@ -91,7 +92,7 @@
             <Button
                 android:layout_width="60dp"
                 android:layout_height="35dp"
-                android:text="Cancel"
+                android:text="无税"
                 android:textSize="13dp"
                 android:gravity="center"
                 android:onClick="freetax"
@@ -122,7 +123,7 @@
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:layout_margin="20dp"
-            android:text="SUBMIT"
+            android:text="提交"
             android:textSize="20dp"
             android:id="@+id/tijiao"
             android:onClick="Submit"

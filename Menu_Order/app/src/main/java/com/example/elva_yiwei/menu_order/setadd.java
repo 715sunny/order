@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ import java.util.Date;
 public class setadd extends Activity {
     private OrderMenuDB orderMenuDB;
     private String cellphone = "";
+    private AutoCompleteTextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class setadd extends Activity {
         }
 
         Date nowTime = new Date(System.currentTimeMillis());
-        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd  kk:mm:ss ");
+        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
         String retStrFormatNowDate = sdFormatter.format(nowTime);
         if(cellphone.equals("")) {
             orderMenuDB.persistO(retStrFormatNowDate, menusList, "0", "-1", editText1.getText().toString());

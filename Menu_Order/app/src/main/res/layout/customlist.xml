@@ -23,9 +23,9 @@
         <Button
             android:id="@+id/view"
             android:layout_gravity="right"
-            android:layout_width="70dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
-            android:text="Print"
+            android:text="打印订单"
             android:background="@drawable/silverbutton"
             android:onClick="onClick"/>
     </LinearLayout>

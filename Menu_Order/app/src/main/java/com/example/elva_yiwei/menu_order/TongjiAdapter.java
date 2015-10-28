@@ -15,12 +15,12 @@ import java.util.Map;
 /**
  * Created by boyu on 15/8/27.
  */
-public class TimeAdapter extends BaseAdapter{
+public class TongjiAdapter extends BaseAdapter{
     private List<Map<String, Object>> data;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public TimeAdapter(Context context, List<Map<String, Object>> data){
+    public TongjiAdapter(Context context, List<Map<String, Object>> data){
         this.context=context;
         this.data=data;
         this.layoutInflater=LayoutInflater.from(context);
@@ -28,6 +28,8 @@ public class TimeAdapter extends BaseAdapter{
 
     public final class Component{
         public TextView title;
+        public Button edit;
+        public Button delete;
     }
     @Override
     public int getCount() {
@@ -50,7 +52,7 @@ public class TimeAdapter extends BaseAdapter{
 
         if(convertView==null){
             component = new Component();
-            convertView = layoutInflater.inflate(R.layout.timelist,null);
+            convertView = layoutInflater.inflate(R.layout.tongjilist,null);
             if(component!=null){
                 component.title = (TextView)convertView.findViewById(R.id.title);
             }

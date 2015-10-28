@@ -54,12 +54,12 @@ public class OrderActivity extends TabActivity {
         Intent intent;
         intent= new Intent(this,OrderList.class);
         spec= mTabHost.newTabSpec("orderlist1")
-                .setIndicator("unfinished order")
+                .setIndicator("未完成订单")
                 .setContent(intent);
         mTabHost.addTab(spec);
         intent= new Intent(this,orderlist2.class);
         spec= mTabHost.newTabSpec("orderlist2")
-                .setIndicator("finifhed order")
+                .setIndicator("已完成订单")
                 .setContent(intent);
         mTabHost.addTab(spec);
 

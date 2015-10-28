@@ -149,10 +149,23 @@ public class OrderMenuDB {
 
     public Cursor fetchOrderByDate(String startdate, String enddate) {
         //String SELECT_ORDER_BY_DATE = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE "+ " DATE between" + startdate + "and enddate";
-        String SELECT_ORDER_BY_DATE = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE date between '"+startdate+"' and '"+enddate+"' ";
+        String SELECT_ORDER_BY_DATE = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE date between '"+startdate+"' and '"+enddate+"' " ;
 
         //Cursor a= db.rawQuery(SELECT_ORDER_BY_DATE, new String[]{startdate,enddate});
         Cursor a= db.rawQuery(SELECT_ORDER_BY_DATE, null);
+
+        //Log.v(v,a.getCount()+"[][][][][]=====================================================");
+
+        return a;
+        //return db.rawQuery(SELECT_ORDER_BY_DATE, new String[]{startdate,enddate});
+    }
+
+    public Cursor fetchDeliveryOrderByDate(String startdate, String enddate) {
+        //String SELECT_ORDER_BY_DATE = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE "+ " DATE between" + startdate + "and enddate";
+        String SELECT_Delivery_ORDER_BY_DATE = " SELECT * FROM " + DATABASE_ORDERS_TABLE + " WHERE "+ADDRESS+" != 'home' and date between '"+startdate+"' and '"+enddate+"' ";
+
+        //Cursor a= db.rawQuery(SELECT_ORDER_BY_DATE, new String[]{startdate,enddate});
+        Cursor a= db.rawQuery(SELECT_Delivery_ORDER_BY_DATE, null);
 
         //Log.v(v,a.getCount()+"[][][][][]=====================================================");
 

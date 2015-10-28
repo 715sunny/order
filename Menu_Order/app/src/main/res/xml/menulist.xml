@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menus>
     <item>
-        <name>fried chicken</name>
+        <name>炸鸡</name>
         <img>000</img>
         <shortcut>A1</shortcut>
         <type>0</type>
         <price>5.99</price>
     </item>
     <item>
-        <name>hamburger</name>
+        <name>左宗鸡</name>
         <img>000</img>
         <shortcut>A2</shortcut>
         <type>0</type>
         <price>13.99</price>
     </item>
     <item>
-        <name>salad</name>
+        <name>湖南鸡</name>
         <img>000</img>
         <shortcut>A3</shortcut>
         <type>0</type>
         <price>5.99</price>
     </item>
     <item>
-        <name>fried shrimp</name>
+        <name>烤鸡</name>
         <img>000</img>
         <shortcut>B1</shortcut>
         <type>0</type>
         <price>12.99</price>
     </item>
     <item>
-        <name>Barbecue</name>
+        <name>烤鸭</name>
         <img>000</img>
         <shortcut>B2</shortcut>
         <type>0</type>
         <price>11.99</price>
     </item>
     <item>
-        <name>Rib</name>
+        <name>烤鹅</name>
         <img>000</img>
         <shortcut>B3</shortcut>
         <type>0</type>
         <price>10.99</price>
     </item>
     <item>
-        <name>steam shrimp</name>
+        <name>烧鸡</name>
         <img>000</img>
         <shortcut>C1</shortcut>
         <type>0</type>
         <price>5.99</price>
     </item>
     <item>
-        <name>Veggie</name>
+        <name>烧鸭</name>
         <img>000</img>
         <shortcut>C2</shortcut>
         <type>0</type>
         <price>7.99</price>
     </item>
     <item>
-        <name>Tuna</name>
+        <name>炸鱼</name>
         <img>000</img>
         <shortcut>C3</shortcut>
         <type>0</type>
@@ -66,63 +66,63 @@
 
 
     <item>
-        <name>Seafood</name>
+        <name>烤鱼</name>
         <img>000</img>
         <shortcut>A4</shortcut>
         <type>2</type>
         <price>5.99</price>
     </item>
     <item>
-        <name>Chicken</name>
+        <name>湖南虾</name>
         <img>000</img>
         <shortcut>A5</shortcut>
         <type>2</type>
         <price>5.99</price>
     </item>
     <item>
-        <name>Ham</name>
+        <name>湖南牛</name>
         <img>000</img>
         <shortcut>A6</shortcut>
         <type>2</type>
         <price>8.99</price>
     </item>
     <item>
-        <name>Turkey</name>
+        <name>炒青菜</name>
         <img>000</img>
         <shortcut>B4</shortcut>
         <type>2</type>
         <price>2.99</price>
     </item>
     <item>
-        <name>Roasted beef</name>
+        <name>鱼香茄条</name>
         <img>000</img>
         <shortcut>B5</shortcut>
         <type>2</type>
         <price>2.99</price>
     </item>
     <item>
-        <name>Salami</name>
+        <name>卤牛肉</name>
         <img>000</img>
         <shortcut>B6</shortcut>
         <type>2</type>
         <price>3.99</price>
     </item>
     <item>
-        <name>Corned beef</name>
+        <name>蛮辣香锅</name>
         <img>000</img>
         <shortcut>C4</shortcut>
         <type>2</type>
         <price>25.99</price>
     </item>
     <item>
-        <name>Bacon</name>
+        <name>煎鸡蛋</name>
         <img>000</img>
         <shortcut>C5</shortcut>
         <type>2</type>
         <price>35.99</price>
     </item>
     <item>
-        <name>Meat ball</name>
+        <name>四喜丸子</name>
         <img>000</img>
         <shortcut>C6</shortcut>
         <type>2</type>

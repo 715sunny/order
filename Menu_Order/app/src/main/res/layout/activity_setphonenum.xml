@@ -11,9 +11,10 @@
         <TextView
             android:layout_marginLeft="80dp"
             android:layout_marginTop="100dp"
-            android:layout_width="100dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
-            android:text="Tel"
+            android:text="请输入电话"
+            android:textColor="#000000"
             android:textSize="40dp"
             android:textStyle="bold"
             />

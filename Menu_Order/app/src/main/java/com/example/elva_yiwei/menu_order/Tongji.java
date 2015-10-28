@@ -35,7 +35,7 @@ public class Tongji  extends Activity {
     private ListView categorysViewList;
     private ListView menusViewList;
     private static TimeAdapter Stringadapter = null;
-    private static TimeAdapter Stringadapter1 = null;
+    private static TongjiAdapter Stringadapter1 = null;
     protected  ArrayList<Map<String, Object>> categorysList =new ArrayList<>();
     protected  ArrayList<Map<String, Object>> menusList =new ArrayList<>();
     protected Context context;
@@ -57,15 +57,16 @@ public class Tongji  extends Activity {
 
 
         categorysViewList = (ListView) findViewById(R.id.timelist);
-        menusViewList = (ListView) findViewById(R.id.menuslist);
+        menusViewList = (ListView) findViewById(R.id.tongjilist);
 
         categorysList = (ArrayList<Map<String, Object>>) getDataC();
         Stringadapter = new TimeAdapter(this, categorysList);
 
+
         categorysViewList.setAdapter(Stringadapter);
         //menusList = (ArrayList<Map<String, Object>>) getDataM(String.valueOf(categorysList.get(0).get("type")));
         menusList = (ArrayList<Map<String, Object>>) getData(retStrFormatNowDate,String.valueOf(categorysList.get(0).get("type")));
-        Stringadapter1 = new TimeAdapter(context, menusList);
+        Stringadapter1 = new TongjiAdapter(context, menusList);
         menusViewList.setAdapter(Stringadapter1);
 
         TextView categoryname = (TextView) findViewById(R.id.categoryname);
@@ -79,7 +80,7 @@ public class Tongji  extends Activity {
 
                 //menusList = (ArrayList<Map<String, Object>>) getDataM(String.valueOf(categorysList.get(arg2).get("type")));
                 menusList = (ArrayList<Map<String, Object>>) getData(retStrFormatNowDate,String.valueOf(categorysList.get(arg2).get("type")));
-                Stringadapter1 = new TimeAdapter(context, menusList);
+                Stringadapter1 = new TongjiAdapter(context, menusList);
                 menusViewList.setAdapter(Stringadapter1);
                 TextView add=(TextView)findViewById(R.id.categoryname);
                 add.setText(categorysList.get(arg2).get("title").toString());
@@ -106,9 +107,13 @@ public class Tongji  extends Activity {
         map3.put("type", "2");
         list.add(map3);
         Map<String, Object> map4=new HashMap<String, Object>();
-        map4.put("title", ("详单查询"));
+        map4.put("title", ("今日外卖"));
         map4.put("type", "3");
-        //list.add(map4);
+        list.add(map4);
+        Map<String, Object> map5=new HashMap<String, Object>();
+        map5.put("title", ("本月外卖"));
+        map5.put("type", "4");
+        list.add(map5);
         return list;
     }
     public List<Map<String, Object>> getDataM(String id){
@@ -173,6 +178,7 @@ public class Tongji  extends Activity {
             //cursor =  orderMenuDB.fetchOrderByDate(date+"00:00:00",date+"23:59:59");
             startdate =date+"00:00:00";
             enddate=date+"23:59:59";
+            cursor =  orderMenuDB.fetchOrderByDate(startdate, enddate);
         }
         if (Integer.parseInt(type)==1){
             Date nowTime = new Date(System.currentTimeMillis());
@@ -188,7 +194,15 @@ public class Tongji  extends Activity {
 
                 enddate=String.valueOf(a)+"-01-01 00:00:00";
                 startdate= retStrFormatNowDate+"-01 00:00:00";
+            }else {
+                int a=Integer.parseInt(retStrFormatNowYear);
+                int b=Integer.parseInt(retStrFormatNowMonth);
+                b++;
+
+                enddate=String.valueOf(a)+"-"+String.valueOf(b)+"-01 00:00:00";
+                startdate= retStrFormatNowDate+"-01 00:00:00";
             }
+            cursor =  orderMenuDB.fetchOrderByDate(startdate, enddate);
 
             //cursor =  orderMenuDB.fetchOrderByDate(startdate, "2015-"+String.valueOf(Integer.parseInt(retStrFormatNowMonth)+1) + "-01 " + "00:00:00");
 
@@ -217,14 +231,44 @@ public class Tongji  extends Activity {
                 startdate=retStrFormatNowYear+"-10-01 00:00:00";
                 enddate=retStrFormatNowYear+"-12-31 23:59:59";
             }
+
+            cursor =  orderMenuDB.fetchOrderByDate(startdate, enddate);
         }
 
-        if(Integer.parseInt(type)==2){
+        if(Integer.parseInt(type)==3){
+            startdate =date+"00:00:00";
+            enddate=date+"23:59:59";
+            cursor =  orderMenuDB.fetchDeliveryOrderByDate(startdate, enddate);
+
+        }
+
+        if(Integer.parseInt(type)==4){
+            Date nowTime = new Date(System.currentTimeMillis());
+            SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM");
+            SimpleDateFormat sdFormatter1 = new SimpleDateFormat("MM");
+            SimpleDateFormat sdFormatter2 = new SimpleDateFormat("yyyy");
+            String retStrFormatNowDate = sdFormatter.format(nowTime);
+            String retStrFormatNowMonth = sdFormatter1.format(nowTime);
+            String retStrFormatNowYear = sdFormatter2.format(nowTime);
+            if(Integer.parseInt(retStrFormatNowMonth)==12){
+                int a=Integer.parseInt(retStrFormatNowYear);
+                a++;
+
+                enddate=String.valueOf(a)+"-01-01 00:00:00";
+                startdate= retStrFormatNowDate+"-01 00:00:00";
+            }else {
+                int a=Integer.parseInt(retStrFormatNowYear);
+                int b=Integer.parseInt(retStrFormatNowMonth);
+                b++;
+
+                enddate=String.valueOf(a)+"-"+String.valueOf(b)+"-01 00:00:00";
+                startdate= retStrFormatNowDate+"-01 00:00:00";}
+            cursor =  orderMenuDB.fetchDeliveryOrderByDate(startdate, enddate);
 
         }
 
 
-        cursor =  orderMenuDB.fetchOrderByDate(startdate, enddate);
+       // cursor =  orderMenuDB.fetchOrderByDate(startdate, enddate);
 //        cursor =  orderMenuDB.fetchOrderByDate(retStrFormatNowDate+"00:00:00",retStrFormatNowDate+"23:59:59");
 
         int ordernum=0;
@@ -232,7 +276,7 @@ public class Tongji  extends Activity {
         if(cursor.getCount()!=0 ) {
             //List<Info> info = new ArrayList<Info>();
             while (cursor.moveToNext()) {
-                Map<String, Object> map=new HashMap<String, Object>();
+               // Map<String, Object> map=new HashMap<String, Object>();
                 String order = cursor.getString(cursor.getColumnIndex("menusList"));
 
 //                    String[] tempStr = info.split(",");
@@ -248,30 +292,33 @@ public class Tongji  extends Activity {
 
         Map<String, Info> map = new HashMap<String, Info>();
         Map<String, Integer> mapSort = new HashMap<String, Integer>();
+
         for (String str : list) {
-            String tax = str.substring(str.lastIndexOf("tax ")+4,str.lastIndexOf(",total "));
-            taxTotal = taxTotal + Double.valueOf(tax);
+            if((str.lastIndexOf("tax ") + 4)!=(str.lastIndexOf(",total "))) {
+                String tax = str.substring(str.lastIndexOf("tax ") + 4, str.lastIndexOf(",total "));
+                taxTotal = taxTotal + Double.valueOf(tax);
 
-            String totalstr = str.substring(str.lastIndexOf("total ")+6,str.length());
-            totalAmunt = totalAmunt + Double.valueOf(totalstr);
+                String totalstr = str.substring(str.lastIndexOf("total ") + 6, str.length());
+                totalAmunt = totalAmunt + Double.valueOf(totalstr);
 
-            String[] tempStr = str.split(",");
-            for (int i = 0; i < tempStr.length - 3; i++) {
-                String name = tempStr[i].substring(0, tempStr[i].lastIndexOf("*"));
-                Integer quantity = Integer.valueOf(tempStr[i].substring(tempStr[i].lastIndexOf("*")+1, tempStr[i].lastIndexOf("     ")));
-                Double total = Double.valueOf(tempStr[i].substring(tempStr[i].lastIndexOf("     ")+1, tempStr[i].length()));
-                if(map.get(name) == null){
-                    Info info = new Info();
-                    info.setName(name);
-                    info.setQuantity(quantity);
-                    info.setTotal(total);
-                    map.put(name, info);
-                    mapSort.put(name, quantity);
-                }else{
-                    Info info = map.get(name);
-                    info.setQuantity(info.getQuantity() + quantity);
-                    info.setTotal(info.getTotal() + total);
-                    mapSort.put(name,mapSort.get(name)+ quantity);
+                String[] tempStr = str.split(",");
+                for (int i = 0; i < tempStr.length - 3; i++) {
+                    String name = tempStr[i].substring(0, tempStr[i].lastIndexOf("*"));
+                    Integer quantity = Integer.valueOf(tempStr[i].substring(tempStr[i].lastIndexOf("*") + 1, tempStr[i].lastIndexOf("     ")));
+                    Double total = Double.valueOf(tempStr[i].substring(tempStr[i].lastIndexOf("     ") + 1, tempStr[i].length()));
+                    if (map.get(name) == null) {
+                        Info info = new Info();
+                        info.setName(name);
+                        info.setQuantity(quantity);
+                        info.setTotal(total);
+                        map.put(name, info);
+                        mapSort.put(name, quantity);
+                    } else {
+                        Info info = map.get(name);
+                        info.setQuantity(info.getQuantity() + quantity);
+                        info.setTotal(info.getTotal() + total);
+                        mapSort.put(name, mapSort.get(name) + quantity);
+                    }
                 }
             }
         }
@@ -305,24 +352,42 @@ public class Tongji  extends Activity {
 //
 //        System.out.println("taxTotal:"+String.format("%.2f", taxTotal));
 //        System.out.println("totalAmunt:"+String.format("%.2f", totalAmunt));
-        for(Info info : returnList){
-            Map<String, Object> map1=new HashMap<String, Object>();
-            String string= "name:" + info.getName() + "  Quantity:" + info.getQuantity() + "   Total:" + info.getTotal();
+    //if (Integer.parseInt(type)!=3 && Integer.parseInt(type)!=4){
+        for(Info info : returnList) {
+            Map<String, Object> map1 = new HashMap<String, Object>();
+            String string = "菜名:" + info.getName() + "  数量:" + info.getQuantity() + "   总额:" + info.getTotal();
             map1.put("title", string);
             list1.add(map1);
+            }
+        //}
 
-        }
+//        if (Integer.parseInt(type)!=3 || Integer.parseInt(type)!=4){
+//            if(cursor.getCount()!=0 ) {
+//                //List<Info> info = new ArrayList<Info>();
+//                while (cursor.moveToNext()) {
+//                    Map<String, Object> map1=new HashMap<String, Object>();
+//                    String order = cursor.getString(cursor.getColumnIndex("menusList"));
+//
+////                    String[] tempStr = info.split(",");
+////                    //map.put("title", tempStr);
+//                    map1.put("title", order);
+//                    list1.add(0,map1);
+//
+//                }
+//            }
+//
+//        }
 
         Map<String, Object> map1=new HashMap<String, Object>();
-        String tax= "taxTotal:"+String.format("%.2f", taxTotal);
+        String tax= "总缴税:"+String.format("%.2f", taxTotal);
         map1.put("title",tax);
         list1.add(0,map1);
         Map<String, Object> map2=new HashMap<String, Object>();
-        String total= "incomTotal:"+String.format("%.2f", totalAmunt);
+        String total= "总收入:"+String.format("%.2f", totalAmunt);
         map2.put("title",total);
         list1.add(0,map2);
         Map<String, Object> map3=new HashMap<String, Object>();
-        String ordernumstring= "order number:"+String.valueOf(ordernum);
+        String ordernumstring= "订单数量:"+String.valueOf(ordernum);
         map3.put("title",ordernumstring);
         list1.add(0,map3);
 
@@ -351,7 +416,7 @@ public class Tongji  extends Activity {
                         EditText menueprice = (EditText)layout.findViewById(R.id.price);
                         orderMenuDB.persistM(menuname.getText().toString(),"000",menuepresskey.getText().toString(),Integer.valueOf(categoryType),menueprice.getText().toString());
                         menusList = (ArrayList<Map<String, Object>>) getDataM(categoryType);
-                        Stringadapter1 = new TimeAdapter(context, menusList);
+                        Stringadapter1 = new TongjiAdapter(context, menusList);
                         menusViewList.setAdapter(Stringadapter1);
                     }
                 })
